@@ -48,22 +48,22 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $num ?></td>
-                                            <td><?php echo $expens['Subject_expense_types']['expense'] ?></td>
-                                            <td> <?php echo $expens['Subject_expense_types']['created']; ?>&nbsp;</td>
+                                            <td><?php echo $expens['SubjectExpenseType']['expense'] ?></td>
+                                            <td> <?php echo $expens['SubjectExpenseType']['created']; ?>&nbsp;</td>
                                             <td class="status"><?php
                                                     $controller = $this->Html->url(array("controller" => "projects", "action" => "update_status", "admin" => true));
-                                                    if ($expens['Subject_expense_types']['status'] == 1) {
-                                                        echo $this->Html->image("active.png", array("id" => $expens['Subject_expense_types']['id'], "title" => "Active", "class" => "act", "escape" => false, "onClick" => "active('" . $controller . "', '".$expens['Subject_expense_types']['id']."', 'Subject_expense_types')"));
+                                                    if ($expens['SubjectExpenseType']['status'] == 1) {
+                                                        echo $this->Html->image("active.png", array("id" => $expens['SubjectExpenseType']['id'], "title" => "Active", "class" => "act", "escape" => false, "onClick" => "active('" . $controller . "', '".$expens['SubjectExpenseType']['id']."', 'SubjectExpenseType')"));
                                                     } else {
-                                                        echo $this->Html->image("inactive.png", array("id" => $expens['Subject_expense_types']['id'], "title" => "InActive", "escape" => false, "class" => "act", "onClick" => "active('" . $controller . "','" . $expens['Subject_expense_types']['id'] . "', 'Subject_expense_types')"));
+                                                        echo $this->Html->image("inactive.png", array("id" => $expens['SubjectExpenseType']['id'], "title" => "InActive", "escape" => false, "class" => "act", "onClick" => "active('" . $controller . "','" . $expens['SubjectExpenseType']['id'] . "', 'SubjectExpenseType')"));
                                                     }
                                                     ?>
                                             </td>
                                             <td class="actions">
                                                 <?php
-                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'expense_view', $expens['Subject_expense_types']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
-                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'expense_edit', $expens['Subject_expense_types']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
-                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'expense_delete', $expens['Subject_expense_types']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('Subject_expense_types'), $expens['Subject_expense_types']['id']));
+                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'expense_view', $expens['SubjectExpenseType']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
+                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'expense_edit', $expens['SubjectExpenseType']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
+                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'expense_delete', $expens['SubjectExpenseType']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('Subject_expense_types'), $expens['SubjectExpenseType']['id']));
 
                                                 ?>
                                             </td>

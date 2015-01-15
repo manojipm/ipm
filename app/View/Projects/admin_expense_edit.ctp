@@ -25,23 +25,23 @@
                         <h3><i class="icon-th-list"></i> Expense - Edit Expense</h3>
                     </div>
                     <div class="box-content nopadding">
-                        <?php echo $this->Form->create('Subject_expense_types', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
-                        <?php echo $this->Form->input('Subject_expense_types.id', array('type' => 'hidden')); ?>
+                        <?php echo $this->Form->create('SubjectExpenseType', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
+                        <?php echo $this->Form->input('SubjectExpenseType.id', array('type' => 'hidden')); ?>
                         
 
                         
                          <div class="control-group">
                             <label for="textfield" class="control-label">Name <span>*</span></label>
                             <div class="controls">
-                            <?php echo $this->Form->input('Subject_expense_types.expense', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                            <?php echo $this->Form->input('SubjectExpenseType.expense', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>
                         <div class="control-group">                              
                             <label for="textfield" class="control-label">Status</label>
                                 <div class="controls">
                                     <?php
-                                    echo $this->Form->checkbox('Subject_expense_types.status', array(
-                                        'checked' => isset($this->request->data['Subject_expense_types']['status']) && $this->request->data['Subject_expense_types']['status'] == 1 ? 'checked' : false,
+                                    echo $this->Form->checkbox('SubjectExpenseType.status', array(
+                                        'checked' => isset($this->request->data['SubjectExpenseType']['status']) && $this->request->data['SubjectExpenseType']['status'] == 1 ? 'checked' : false,
                                         'hiddenField' => false,
                                     ));
                                     ?> 
@@ -51,7 +51,7 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/testimonials'" class="btn">Cancel</button>
+                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/projects/expense'" class="btn">Cancel</button>
                         </div>
 
 

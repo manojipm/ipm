@@ -25,23 +25,23 @@
                         <h3><i class="icon-th-list"></i> Source - Edit Source</h3>
                     </div>
                     <div class="box-content nopadding">
-                        <?php echo $this->Form->create('Projects_source', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
-                        <?php echo $this->Form->input('Projects_source.id', array('type' => 'hidden')); ?>
+                        <?php echo $this->Form->create('ProjectsSource', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
+                        <?php echo $this->Form->input('ProjectsSource.id', array('type' => 'hidden')); ?>
                         
 
                         
                          <div class="control-group">
                             <label for="textfield" class="control-label">Name <span>*</span></label>
                             <div class="controls">
-                            <?php echo $this->Form->input('Projects_source.source', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                            <?php echo $this->Form->input('ProjectsSource.source', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>
                         <div class="control-group">                              
                             <label for="textfield" class="control-label">Status</label>
                                 <div class="controls">
                                     <?php
-                                    echo $this->Form->checkbox('Projects_source.status', array(
-                                        'checked' => isset($this->request->data['Projects_source']['status']) && $this->request->data['Projects_source']['status'] == 1 ? 'checked' : false,
+                                    echo $this->Form->checkbox('ProjectsSource.status', array(
+                                        'checked' => isset($this->request->data['ProjectsSource']['status']) && $this->request->data['ProjectsSource']['status'] == 1 ? 'checked' : false,
                                         'hiddenField' => false,
                                     ));
                                     ?> 
@@ -51,7 +51,7 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/testimonials'" class="btn">Cancel</button>
+                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/projects/source'" class="btn">Cancel</button>
                         </div>
 
 

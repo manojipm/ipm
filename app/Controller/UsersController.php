@@ -32,8 +32,7 @@ class UsersController extends AppController {
 
     var $name = 'Users';
     //public $uses = array('User', 'Language', 'Country', 'State', 'City','UserImage');
-    
-    public $uses = array('User');
+    public $uses = array('User','UsersDetail');
 
     /**
      * check login for admin and frontend user
@@ -62,32 +61,12 @@ class UsersController extends AppController {
      * @return void
      */
     public function admin_index() {
-        $this->set('title_for_layout', __('All users', true));
-        $this->User->recursive = 0;
-        if ($this->request->is('post') || $this->request->is('put')) {
-            $role_ids = array();
+        $this->set('title_for_layout', __('All Users',true));
+            $conditions = array();
 
-            if (isset($this->request->data['User'][0]['role_id']))
-                $role_ids[] = $this->request->data['User'][0]['role_id'];
-            if (isset($this->request->data['User'][1]['role_id']))
-                $role_ids[] = $this->request->data['User'][1]['role_id'];
-            if (isset($this->request->data['User'][2]['role_id']))
-                $role_ids[] = $this->request->data['User'][2]['role_id'];
-
-            if (isset($role_ids) && !empty($role_ids)) {
-                $conditions = array('User.role_id' => $role_ids, 'NOT' => array('User.role_id' => array(1)));
-            } else {
-                $conditions = array('User.status' => 1, 'NOT' => array('User.role_id' => array(1)));
-            }
-            $this->paginate = array("conditions" => $conditions, "order" => "User.id DESC");
-            $this->set('users', $this->paginate());
-            $this->set('role_ids', $this->request->data);
-        } else {
-            $conditions = array('NOT' => array('User.role_id' => array(1)));
-
-            $this->paginate = array("conditions" => $conditions, "order" => "User.id DESC"); //pr($this->paginate());
-            $this->set('users', $this->paginate());
-        }
+            $this->User->recursive = 0;
+            $this->paginate = array("limit" => 15, "order" => "User.id ASC");
+            $this->set('users', $this->paginate('User'));
     }
 
     /**
@@ -96,24 +75,27 @@ class UsersController extends AppController {
      * @return void
      */
     public function admin_add() {
-        //$this->User->recursive = 3;
-        
-        $this->loadModel('Role');
-        $userType = $this->Role->findById($this->params['named']['type']);
-        $this->set('userType', $userType);
-        $this->set('title_for_layout', __('Add new ' . $userType['Role']['role'], true));
-        if ($this->request->is('post') || $this->request->is('put')) {
-            App::uses('Sanitize', 'Utility');
-            Sanitize::clean($this->request->data);
-
-            $this->request->data['UserProfile']['unique_id'] = substr(time(), -5);
-            if ($this->User->saveAssociated($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved successfully.'), 'success');
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'error');
-            }
-        }
+        $this->set('title_for_layout', __('Add new User',true));
+		if ($this->request->is('post') || $this->request->is('put')) {
+			
+			if ($result = $this->User->save($this->request->data)) { 
+                           
+                            $this->request->data['UsersDetail']['user_id'] = $this->User->getLastInsertId();
+                            
+                            if(!empty($this->request->data['UsersDetail'])){
+                             
+                            $this->UsersDetail->save($this->request->data);
+                            }
+                            
+                            $this->Session->setFlash(__('The user has been saved successfully.'),'success');
+                            $this->redirect(array('action' => 'index'));
+                       
+			} else {
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'),'error');
+		
+			}
+                        
+		}
     }
 
     /**
@@ -124,36 +106,26 @@ class UsersController extends AppController {
      * @return void
      */
     public function admin_edit($id = null) {
-       $this->loadModel('Role');
-        $userType = $this->Role->findById($this->params['named']['type']);
-        $this->set('userType', $userType);
-        $this->set('title_for_layout', __('Edit  ' . $userType['Role']['role'], true));
-        $this->User->id = $id;
-        if (!$this->User->exists()) {
-            $this->Session->setFlash(__('Invalid User.'), 'error');
-            $this->redirect(array('action' => 'index'));
-        }
-        if ($this->request->is('post') || $this->request->is('put')) {
-            App::uses('Sanitize', 'Utility');
-            Sanitize::clean($this->request->data);
-            $this->User->validator()->remove('Language');
-            if ($this->User->saveAssociated($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved successfully.'), 'success');
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $errors = $this->User->validationErrors;
-                //pr($errors);
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'error');
-            }
-        }
-        $this->request->data = $this->User->read(null, $id);
-        if (isset($this->request->data['UserProfile']['height']) && !empty($this->request->data['UserProfile']['height'])) {
-            $height = $this->request->data['UserProfile']['height'];
-            $height_inches = ($height % 12);
-            $height_feet = (int) ($height / 12);
-            $this->request->data['UserProfile']['height_feet'] = $height_feet;
-            $this->request->data['UserProfile']['height_inches'] = $height_inches;
-        }
+       $this->set('title_for_layout', __('Edit User',true));
+		$this->User->id = $id;
+		//check country exist
+		if (!$this->User->exists()) {
+			$this->Session->setFlash(__('Invalid User.'),'error');
+			$this->redirect(array('action' => 'index'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->User->save($this->request->data)) {
+                                $this->Session->setFlash(__('The user has been saved successfully.'),'success');
+                                $this->redirect(array('action' => 'index'));
+			} else {
+                               
+                                
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'),'error');
+			}
+                        
+		} 
+
+		$this->request->data = $this->User->read(null, $id);
     }
 
     /**
@@ -164,38 +136,16 @@ class UsersController extends AppController {
      * @return void
      */
     public function admin_view($id = null) {
-        $this->User->id = $id;
-        $this->loadModel('Role');
-        $userType = $this->Role->findById($this->params['named']['type']);
-        $this->set('userType', $userType);
-        $this->set('title_for_layout', __('View  ' . $userType['Role']['role'], true) . ' details');
-        if (!$this->User->exists() && !$this->params['named']['type']) {
-            $this->Session->setFlash(__('Invalid User.'), 'error');
-            $this->redirect(array('action' => 'index'));
-        }
-        $this->loadModel('Penalty');
-
-        if ($this->request->is('post') || $this->request->is('put')) {
-            //pr($this->request->data);die;
-            if ($this->Penalty->save($this->request->data)) {
-
-                $this->Session->setFlash(__('The penalty has been saved successfully.'), 'success');
-                $this->redirect(array('controller' => 'penalty', 'action' => 'index'));
-            } else {
-                $errors = $this->Penalty->validationErrors;
-                //pr($errors);
-                $this->Session->setFlash(__('The penalty could not be saved. Please, try again.'), 'error');
-            }
+        $this->set('title_for_layout', __('View User',true));
+		$this->User->id = $id;
+		if (!$this->User->exists()) {
+			throw new NotFoundException(__('Invalid User'));
+		}
+		
+		$this->set('users', $this->User->read(null, $id));
+		$this->set('title_for_layout','View User');
         }
 
-
-
-
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
-        }
-        $this->set('users', $this->User->read(null, $id));
-    }
 
     /**
      * admin_delete method
@@ -207,34 +157,19 @@ class UsersController extends AppController {
      */
     public function admin_delete($id = null) {
         if (!$this->request->is('post')) {
-            throw new MethodNotAllowedException();
-        }
-        $this->User->id = $id;
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'), 'error');
-        }
-        $users = $this->User->find('first', array('conditions' => array('User.id' => $id), 'fields' => array('UserImage.image_name', 'UserVideo.profile_vedio', 'UserProfile.passport_scan_copy', 'UserProfile.agency_license')));
-        //pr($users);die;  
-        if (!empty($id)) {
-            if (file_exists(WWW_ROOT . USER_PIC_PATH . DS . $users['UserImage']['image_name'])) {
-                @unlink(WWW_ROOT . USER_PIC_PATH . DS . $users['UserImage']['image_name']);
-            }
-            if (file_exists(WWW_ROOT . USER_VIDEO_PATH . DS . $users['UserVideo']['profile_vedio'])) {
-                @unlink(WWW_ROOT . USER_VIDEO_PATH . DS . $users['UserVideo']['profile_vedio']);
-            }
-            if (file_exists(WWW_ROOT . USER_PASSPORT_PATH . DS . $users['UserProfile']['passport_scan_copy'])) {
-                @unlink(WWW_ROOT . USER_PASSPORT_PATH . DS . $users['UserProfile']['passport_scan_copy']);
-            }
-            if (file_exists(WWW_ROOT . AGENCY_FILE_PATH . DS . $users['UserProfile']['agency_license'])) {
-                @unlink(WWW_ROOT . AGENCY_FILE_PATH . DS . $users['UserProfile']['agency_license']);
-            }
-        }
-        if ($this->User->delete()) {
-            $this->Session->setFlash(__('User deleted'), 'success');
-            $this->redirect(array('action' => 'index'));
-        }
-        $this->Session->setFlash(__('User was not deleted'), 'error');
-        $this->redirect(array('action' => 'index'));
+			throw new MethodNotAllowedException();
+		}
+		$this->User->id = $id;
+		if (!$this->User->exists()) {
+			throw new NotFoundException(__('Invalid User'),'error');
+		}     
+                
+		if ($this->User->delete()) {
+			$this->Session->setFlash(__('User deleted'),'success');
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->Session->setFlash(__('User not deleted'),'error');
+		$this->redirect(array('action' => 'index'));
     }
 
     /**
@@ -580,117 +515,7 @@ class UsersController extends AppController {
             }
         }
     }
-    
-    /*======================= USERS ADD BY ADMIN FUNCTIONS =========================*/
+   
         
-        /**
-	 * Displays a view
-	 *
-	 * @param mixed What page to display
-	 * @return void
-	 */	
-	public function admin_user(){
-	
-            $this->set('title_for_layout', __('All Users',true));
-            $conditions = array();
-
-            $this->User->recursive = 0;
-            $this->paginate = array("limit" => 15, "order" => "User.id ASC");
-            $this->set('Users', $this->paginate('User'));
-            
-	}
-        
-	/**
-	 * admin_user_view method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	public function admin_user_view($id = null) {
-                $this->set('title_for_layout', __('View User',true));
-		$this->User->id = $id;
-		if (!$this->User->exists()) {
-			throw new NotFoundException(__('Invalid User'));
-		}
-		
-		$this->set('users', $this->User->read(null, $id));
-		$this->set('title_for_layout','View User');
-	}
-        
-         /**
-	 * admin_user_add method
-	 *
-	 * @return void
-	 */	
-	public function admin_user_add(){
-		$this->set('title_for_layout', __('Add new User',true));
-		if ($this->request->is('post') || $this->request->is('put')) {
-			
-			if ($this->User->save($this->request->data)) { 
-				$this->Session->setFlash(__('The user has been saved successfully.'),'success');
-				$this->redirect(array('action' => 'user'));
-			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'),'error');
-		
-			}
-		}
-	}
-        
-        /**
-	 * admin_user_edit method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	public function admin_user_edit($id = null) {
-                $this->set('title_for_layout', __('Edit Category',true));
-		$this->Projects_category->id = $id;
-		//check country exist
-		if (!$this->Projects_category->exists()) {
-			$this->Session->setFlash(__('Invalid Category.'),'error');
-			$this->redirect(array('action' => 'user'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Projects_category->save($this->request->data)) {
-                                $this->Session->setFlash(__('The category has been saved successfully.'),'success');
-                                $this->redirect(array('action' => 'user'));
-			} else {
-                               
-                                
-				$this->Session->setFlash(__('The category could not be saved. Please, try again.'),'error');
-			}
-                        
-		} 
-
-		$this->request->data = $this->Projects_category->read(null, $id);
-	}
-			
-	/**
-	 * admin_user_delete method
-	 *
-	 * @throws MethodNotAllowedException
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	public function admin_user_delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this->Projects_category->id = $id;
-		if (!$this->Projects_category->exists()) {
-			throw new NotFoundException(__('Invalid user'),'error');
-		}     
-                
-		if ($this->Projects_category->delete()) {
-			$this->Session->setFlash(__('User deleted'),'success');
-			$this->redirect(array('action' => 'user'));
-		}
-		$this->Session->setFlash(__('User not deleted'),'error');
-		$this->redirect(array('action' => 'user'));
-	}
-
     /*     * ********************* Front End Panel Common Functions End ************************* */
 }

@@ -6,22 +6,22 @@ App::uses('AppModel', 'Model');
  * User Model
  *
  */
-class Plan extends AppModel {
-    public $actsAs = array('Containable');
-    /**
-     * Validation rules
-     *
-     * @var array
-     */
-    //public $useTable = '';
- 
-    
-    function beforeValidate($options = array()) {
-        if (!isset($this->data[$this->alias]["status"])) {
-            $this->data[$this->alias]["status"] = 0;
-        }
-        return true; //this is required, otherwise validation will always fail
-    }
+class UsersDetail extends AppModel {
+
+    public $validate = array(
+        'first_name' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Name is required'
+            )
+        ),
+        'last_name' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Last name is required'
+            )
+        ),
+    );
     public function afterFind($results, $primary = false) {
         App::uses('CakeTime', 'Utility');
         foreach ($results as $key => $val) {
@@ -31,5 +31,4 @@ class Plan extends AppModel {
         }
         return $results;
     }
-
 }

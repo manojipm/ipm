@@ -5,7 +5,15 @@ App::uses('AppModel', 'Model');
  *
  */
 class City extends AppModel {
-	
+    
+    public $validate = array(
+        'city' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'City is required'
+            ),
+        ),
+    );	
 
     public function afterFind($results, $primary = false) {
         App::uses('CakeTime', 'Utility');

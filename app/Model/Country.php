@@ -6,7 +6,15 @@ App::uses('AppModel', 'Model');
  */
 class Country extends AppModel {
 	
-
+    public $validate = array(
+        'country' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Country is required'
+            ),
+        ),
+    );
+    
     public function afterFind($results, $primary = false) {
         App::uses('CakeTime', 'Utility');
         foreach ($results as $key => $val) {

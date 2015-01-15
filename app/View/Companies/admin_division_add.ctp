@@ -25,18 +25,18 @@
                         <h3><i class="icon-th-list"></i> Division - Add Division</h3>
                     </div>
                     <div class="box-content nopadding">
-                        <?php echo $this->Form->create('Locations_by_division', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
+                        <?php echo $this->Form->create('LocationsByDivision', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
                         <div class="control-group">
                             <label for="textfield" class="control-label">Name <span>*</span></label>
                             <div class="controls">
-                               <?php echo $this->Form->input('Locations_by_division.division_type', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                               <?php echo $this->Form->input('LocationsByDivision.division_type', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="textfield" class="control-label">Status</label>
                             <div class="controls">
                                 <?php
-                                echo $this->Form->checkbox('Locations_by_division.status', array(
+                                echo $this->Form->checkbox('LocationsByDivision.status', array(
                                     'value' => '1',
                                     'checked' => 'checked',
                                     'hiddenField' => false,
@@ -47,7 +47,7 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/locations'" class="btn">Cancel</button>
+                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/companies/division'" class="btn">Cancel</button>
                         </div>
                         
                         

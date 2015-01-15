@@ -28,21 +28,21 @@
                         </h3>
                     </div>
                     <div class="box-content nopadding">
-                        <?php echo $this->Form->create('Locations_by_division', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
-                        <?php echo $this->Form->input('Locations_by_division.id', array('type' => 'hidden', )); ?>
+                        <?php echo $this->Form->create('LocationsByDivision', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
+                        <?php echo $this->Form->input('LocationsByDivision.id', array('type' => 'hidden', )); ?>
                         
                           
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Title</label>
-                                <div class="controls"><?php echo $divisions['Locations_by_division']['division_type']; ?></div>
+                                <div class="controls"><?php echo $divisions['LocationsByDivision']['division_type']; ?></div>
                             </div>                            
   							<div class="control-group">
                                 <label for="textfield" class="control-label">Created</label>
-                                <div class="controls"><?php echo $divisions['Locations_by_division']['created'];?></div>
+                                <div class="controls"><?php echo $divisions['LocationsByDivision']['created'];?></div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Status</label>
-                                <div class="controls"><?php echo ($divisions['Locations_by_division']['status'] == 0) ? 'Deactive' : 'Active'; ?></div>
+                                <div class="controls"><?php echo ($divisions['LocationsByDivision']['status'] == 0) ? 'Deactive' : 'Active'; ?></div>
                             </div>
                             
                           

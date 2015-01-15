@@ -5,6 +5,16 @@ App::uses('AppModel', 'Model');
  *
  */
 class Zone extends AppModel {
+    
+    public $validate = array(
+        'zone' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Zone is required'
+            ),
+        ),
+    );
+    
 	
 
     public function afterFind($results, $primary = false) {

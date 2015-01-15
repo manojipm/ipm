@@ -48,22 +48,22 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $num ?></td>
-                                            <td><?php echo $structure['Company_structures']['structure'] ?></td>
-                                            <td> <?php echo $structure['Company_structures']['created']; ?>&nbsp;</td>
+                                            <td><?php echo $structure['CompanyStructure']['structure'] ?></td>
+                                            <td> <?php echo $structure['CompanyStructure']['created']; ?>&nbsp;</td>
                                             <td class="status"><?php
                                                     $controller = $this->Html->url(array("controller" => "companies", "action" => "update_status", "admin" => true));
-                                                    if ($structure['Company_structures']['status'] == 1) {
-                                                        echo $this->Html->image("active.png", array("id" => $structure['Company_structures']['id'], "title" => "Active", "class" => "act", "escape" => false, "onClick" => "active('" . $controller . "', '".$structure['Company_structures']['id']."', 'Company_structures')"));
+                                                    if ($structure['CompanyStructure']['status'] == 1) {
+                                                        echo $this->Html->image("active.png", array("id" => $structure['CompanyStructure']['id'], "title" => "Active", "class" => "act", "escape" => false, "onClick" => "active('" . $controller . "', '".$structure['CompanyStructure']['id']."', 'CompanyStructure')"));
                                                     } else {
-                                                        echo $this->Html->image("inactive.png", array("id" => $structure['Company_structures']['id'], "title" => "InActive", "escape" => false, "class" => "act", "onClick" => "active('" . $controller . "','" . $structure['Company_structures']['id'] . "', 'Company_structures')"));
+                                                        echo $this->Html->image("inactive.png", array("id" => $structure['CompanyStructure']['id'], "title" => "InActive", "escape" => false, "class" => "act", "onClick" => "active('" . $controller . "','" . $structure['CompanyStructure']['id'] . "', 'CompanyStructure')"));
                                                     }
                                                     ?>
                                             </td>
                                             <td class="actions">
                                                 <?php
-                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'structure_view', $structure['Company_structures']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
-                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'structure_edit', $structure['Company_structures']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
-                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'structure_delete', $structure['Company_structures']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('delete_assoc_record'), $structure['Company_structures']['id']));
+                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'structure_view', $structure['CompanyStructure']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
+                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'structure_edit', $structure['CompanyStructure']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
+                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'structure_delete', $structure['CompanyStructure']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('delete_assoc_record'), $structure['CompanyStructure']['id']));
 
                                                 ?>
                                             </td>

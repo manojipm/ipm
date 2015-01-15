@@ -4,8 +4,16 @@ App::uses('AppModel', 'Model');
  * Country Model
  *
  */
-class Industry_classifications extends AppModel {
+class IndustryClassification extends AppModel {
 	
+    public $validate = array(
+        'classification' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Classification is required'
+            ),
+        ),
+    );
 
     public function afterFind($results, $primary = false) {
         App::uses('CakeTime', 'Utility');

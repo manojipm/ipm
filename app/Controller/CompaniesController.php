@@ -31,7 +31,7 @@ App::uses('CakeEmail', 'Network/Email');
 class CompaniesController extends AppController {
 
 	public $name = 'Companies';	
-	public $uses = array('Industry_classifications','Locations_by_division','Company_structures');
+	public $uses = array('IndustryClassification','LocationsByDivision','CompanyStructure');
 	
 	/**
 	* check login for admin and frontend user
@@ -66,9 +66,9 @@ class CompaniesController extends AppController {
             $this->set('title_for_layout', __('All Structure',true));
             $conditions = array();
 
-            $this->Company_structures->recursive = 0;
-            $this->paginate = array("limit" => 15, "order" => "Company_structures.structure ASC");
-            $this->set('structures', $this->paginate('Company_structures'));
+            $this->CompanyStructure->recursive = 0;
+            $this->paginate = array("limit" => 15, "order" => "CompanyStructure.structure ASC");
+            $this->set('structures', $this->paginate('CompanyStructure'));
             
 	}
         
@@ -81,12 +81,12 @@ class CompaniesController extends AppController {
 	 */
 	public function admin_structure_view($id = null) {
                 $this->set('title_for_layout', __('View Structure',true));
-		$this->Company_structures->id = $id;
-		if (!$this->Company_structures->exists()) {
+		$this->CompanyStructure->id = $id;
+		if (!$this->CompanyStructure->exists()) {
 			throw new NotFoundException(__('Invalid Structure'));
 		}
 		
-		$this->set('structures', $this->Company_structures->read(null, $id));
+		$this->set('structures', $this->CompanyStructure->read(null, $id));
 		$this->set('title_for_layout','View Structure');
 	}
         
@@ -99,7 +99,7 @@ class CompaniesController extends AppController {
 		$this->set('title_for_layout', __('Add new Structure',true));
 		if ($this->request->is('post') || $this->request->is('put')) {
 			
-			if ($this->Company_structures->save($this->request->data)) { 
+			if ($this->CompanyStructure->save($this->request->data)) { 
 				$this->Session->setFlash(__('The structure has been saved successfully.'),'success');
 				$this->redirect(array('action' => 'structure'));
 			} else {
@@ -118,14 +118,14 @@ class CompaniesController extends AppController {
 	 */
 	public function admin_structure_edit($id = null) {
                 $this->set('title_for_layout', __('Edit Structure',true));
-		$this->Company_structures->id = $id;
+		$this->CompanyStructure->id = $id;
 		//check country exist
-		if (!$this->Company_structures->exists()) {
+		if (!$this->CompanyStructure->exists()) {
 			$this->Session->setFlash(__('Invalid Structure.'),'error');
 			$this->redirect(array('action' => 'structure'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Company_structures->save($this->request->data)) {
+			if ($this->CompanyStructure->save($this->request->data)) {
                                 $this->Session->setFlash(__('The structure has been saved successfully.'),'success');
                                 $this->redirect(array('action' => 'structure'));
 			} else {
@@ -136,7 +136,7 @@ class CompaniesController extends AppController {
                         
 		} 
 
-		$this->request->data = $this->Company_structures->read(null, $id);
+		$this->request->data = $this->CompanyStructure->read(null, $id);
 	}
 			
 	/**
@@ -151,12 +151,12 @@ class CompaniesController extends AppController {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
-		$this->Company_structures->id = $id;
-		if (!$this->Company_structures->exists()) {
+		$this->CompanyStructure->id = $id;
+		if (!$this->CompanyStructure->exists()) {
 			throw new NotFoundException(__('Invalid structure'),'error');
 		}     
                 
-		if ($this->Company_structures->delete()) {
+		if ($this->CompanyStructure->delete()) {
 			$this->Session->setFlash(__('Structure deleted'),'success');
 			$this->redirect(array('action' => 'structure'));
 		}
@@ -177,9 +177,9 @@ class CompaniesController extends AppController {
             $this->set('title_for_layout', __('All Classification',true));
             $conditions = array();
 
-            $this->Industry_classifications->recursive = 0;
-            $this->paginate = array("limit" => 15, "order" => "Industry_classifications.classification ASC");
-            $this->set('classifications', $this->paginate('Industry_classifications'));
+            $this->IndustryClassification->recursive = 0;
+            $this->paginate = array("limit" => 15, "order" => "IndustryClassification.classification ASC");
+            $this->set('classifications', $this->paginate('IndustryClassification'));
             
 	}
         
@@ -192,12 +192,12 @@ class CompaniesController extends AppController {
 	 */
 	public function admin_classification_view($id = null) {
                 $this->set('title_for_layout', __('View Classifications',true));
-		$this->Industry_classifications->id = $id;
-		if (!$this->Industry_classifications->exists()) {
+		$this->IndustryClassification->id = $id;
+		if (!$this->IndustryClassification->exists()) {
 			throw new NotFoundException(__('Invalid Classifications'));
 		}
 		
-		$this->set('classifications', $this->Industry_classifications->read(null, $id));
+		$this->set('classifications', $this->IndustryClassification->read(null, $id));
 		$this->set('title_for_layout','View Classifications');
 	}
         
@@ -210,7 +210,7 @@ class CompaniesController extends AppController {
 		$this->set('title_for_layout', __('Add new Classification',true));
 		if ($this->request->is('post') || $this->request->is('put')) {
 			
-			if ($this->Industry_classifications->save($this->request->data)) { 
+			if ($this->IndustryClassification->save($this->request->data)) { 
 				$this->Session->setFlash(__('The classification has been saved successfully.'),'success');
 				$this->redirect(array('action' => 'classification'));
 			} else {
@@ -229,14 +229,14 @@ class CompaniesController extends AppController {
 	 */
 	public function admin_classification_edit($id = null) {
                 $this->set('title_for_layout', __('Edit Classification',true));
-		$this->Industry_classifications->id = $id;
+		$this->IndustryClassification->id = $id;
 		//check country exist
-		if (!$this->Industry_classifications->exists()) {
+		if (!$this->IndustryClassification->exists()) {
 			$this->Session->setFlash(__('Invalid classification.'),'error');
 			$this->redirect(array('action' => 'classification'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Industry_classifications->save($this->request->data)) {
+			if ($this->IndustryClassification->save($this->request->data)) {
                                 $this->Session->setFlash(__('The classification has been saved successfully.'),'success');
                                 $this->redirect(array('action' => 'classification'));
 			} else {
@@ -247,7 +247,7 @@ class CompaniesController extends AppController {
                         
 		} 
 
-		$this->request->data = $this->Industry_classifications->read(null, $id);
+		$this->request->data = $this->IndustryClassification->read(null, $id);
 	}
 			
 	/**
@@ -262,12 +262,12 @@ class CompaniesController extends AppController {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
-		$this->Industry_classifications->id = $id;
-		if (!$this->Industry_classifications->exists()) {
+		$this->IndustryClassification->id = $id;
+		if (!$this->IndustryClassification->exists()) {
 			throw new NotFoundException(__('Invalid classification'),'error');
 		}     
                 
-		if ($this->Industry_classifications->delete()) {
+		if ($this->IndustryClassification->delete()) {
 			$this->Session->setFlash(__('Classification deleted'),'success');
 			$this->redirect(array('action' => 'classification'));
 		}
@@ -288,9 +288,9 @@ class CompaniesController extends AppController {
             $this->set('title_for_layout', __('All Division',true));
             $conditions = array();
 
-            $this->Locations_by_division->recursive = 0;
-            $this->paginate = array("limit" => 15, "order" => "Locations_by_division.division_type ASC");
-            $this->set('divisions', $this->paginate('Locations_by_division'));
+            $this->LocationsByDivision->recursive = 0;
+            $this->paginate = array("limit" => 15, "order" => "LocationsByDivision.division_type ASC");
+            $this->set('divisions', $this->paginate('LocationsByDivision'));
             
 	}
         
@@ -303,12 +303,12 @@ class CompaniesController extends AppController {
 	 */
 	public function admin_division_view($id = null) {
                 $this->set('title_for_layout', __('View Division',true));
-		$this->Locations_by_division->id = $id;
-		if (!$this->Locations_by_division->exists()) {
+		$this->LocationsByDivision->id = $id;
+		if (!$this->LocationsByDivision->exists()) {
 			throw new NotFoundException(__('Invalid Division'));
 		}
 		
-		$this->set('divisions', $this->Locations_by_division->read(null, $id));
+		$this->set('divisions', $this->LocationsByDivision->read(null, $id));
 		$this->set('title_for_layout','View divisions');
 	}
         
@@ -321,7 +321,7 @@ class CompaniesController extends AppController {
 		$this->set('title_for_layout', __('Add new Division',true));
 		if ($this->request->is('post') || $this->request->is('put')) {
 			
-			if ($this->Locations_by_division->save($this->request->data)) { 
+			if ($this->LocationsByDivision->save($this->request->data)) { 
 				$this->Session->setFlash(__('The division has been saved successfully.'),'success');
 				$this->redirect(array('action' => 'division'));
 			} else {
@@ -340,14 +340,14 @@ class CompaniesController extends AppController {
 	 */
 	public function admin_division_edit($id = null) {
                 $this->set('title_for_layout', __('Edit Division',true));
-		$this->Locations_by_division->id = $id;
+		$this->LocationsByDivision->id = $id;
 		//check country exist
-		if (!$this->Locations_by_division->exists()) {
+		if (!$this->LocationsByDivision->exists()) {
 			$this->Session->setFlash(__('Invalid division.'),'error');
 			$this->redirect(array('action' => 'division'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Locations_by_division->save($this->request->data)) {
+			if ($this->LocationsByDivision->save($this->request->data)) {
                                 $this->Session->setFlash(__('The division has been saved successfully.'),'success');
                                 $this->redirect(array('action' => 'division'));
 			} else {
@@ -358,7 +358,7 @@ class CompaniesController extends AppController {
                         
 		} 
 
-		$this->request->data = $this->Locations_by_division->read(null, $id);
+		$this->request->data = $this->LocationsByDivision->read(null, $id);
 	}
 			
 	/**
@@ -373,12 +373,12 @@ class CompaniesController extends AppController {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
-		$this->Locations_by_division->id = $id;
-		if (!$this->Locations_by_division->exists()) {
+		$this->LocationsByDivision->id = $id;
+		if (!$this->LocationsByDivision->exists()) {
 			throw new NotFoundException(__('Invalid division'),'error');
 		}     
                 
-		if ($this->Locations_by_division->delete()) {
+		if ($this->LocationsByDivision->delete()) {
 			$this->Session->setFlash(__('Division deleted'),'success');
 			$this->redirect(array('action' => 'division'));
 		}

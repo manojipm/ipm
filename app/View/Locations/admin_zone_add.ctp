@@ -7,7 +7,7 @@
                     <i class="icon-angle-right"></i>
                 </li>
                 <li>
-                    <a href="<?php echo SITEURL; ?>admin/locations/zone">City</a>
+                    <a href="<?php echo SITEURL; ?>admin/locations/zone">Zone</a>
                     <i class="icon-angle-right"></i>
                 </li>
                 <li>
@@ -47,7 +47,7 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/locations'" class="btn">Cancel</button>
+                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/locations/zone'" class="btn">Cancel</button>
                         </div>
                         
                         

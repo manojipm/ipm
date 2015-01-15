@@ -7,6 +7,7 @@ $page		= '';
 $testimonial	= '';
 $new		= '';	
 $agency		= '';
+$masters        = '';
 $user		= '';
 $setting	= '';
 $slider         = '';
@@ -32,6 +33,9 @@ if($controller == 'news' && $action ==('index'||'add'||'edit'||'delete')){
 
 if($controller == 'agency' && $action ==('index'||'add'||'edit'||'delete')){
 	$agency = ' active';
+}
+if ($controller == 'locations' || $controller == 'projects' || $controller == 'companies' && $action == ('index' || 'add' || 'edit' || 'delete')) {
+    $masters = ' active';
 }
 if($controller == 'users' && $action ==('index'||'add'||'edit'||'delete')){
 	$user = ' active';
@@ -86,7 +90,8 @@ if($controller == 'messages' && $action ==('index'||'add'||'edit'||'delete')){
 						<a href="<?php echo SITEURL; ?>admin/locations/country_add">Add Country</a>
 					</li>
 				</ul>
-			</li><li class='dropdown <?php echo $testimonial;?>'>
+			</li>
+                        <li class='dropdown <?php echo $testimonial;?>'>
 				<a href="javascript:void(0);" data-toggle="dropdown">State</a>
 				<ul class="dropdown-menu">
 					<li>
@@ -196,102 +201,27 @@ if($controller == 'messages' && $action ==('index'||'add'||'edit'||'delete')){
 				</ul>
 			</li>
                         
-                        <li class='dropdown <?php echo $testimonial;?>'>
-				<a href="javascript:void(0);" data-toggle="dropdown">Users</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="<?php echo SITEURL; ?>admin/users/user">Users</a>
-					</li>
-					<li>
-						<a href="<?php echo SITEURL; ?>admin/users/user_add">Add User</a>
-					</li>
-				</ul>
-			</li>
-			
 			
 		</ul>
 		
 	</div>
 	<div class="subnav">
 		<div class="subnav-title">
-			<a href="javascript:void(0);" class='toggle-subnav'><i class="icon-angle-down"></i><span>Managers</span></a>
+			<a href="javascript:void(0);" class='toggle-subnav'><i class="icon-angle-down"></i><span>User Manager</span></a>
 		</div>
 		<ul class="subnav-menu">
 
-			<!--<li class='dropdown <?php echo $user;?>'>
+			<li class='dropdown <?php echo $testimonial;?>'>
 				<a href="javascript:void(0);" data-toggle="dropdown">Users</a>
 				<ul class="dropdown-menu">
 					<li>
 						<a href="<?php echo SITEURL; ?>admin/users">Users</a>
 					</li>
-					<li class='dropdown-submenu'>
-						<a href="javascript:void(0);" data-toggle="dropdown" class='dropdown-toggle'>Add User</a>
-						<ul class="dropdown-menu">
-                                                        <li>
-								<a href="<?php echo SITEURL; ?>admin/users/add/type:2">Agency</a>
-							</li>
-							<li>
-								<a href="<?php echo SITEURL; ?>admin/users/add/type:3">Man</a>
-							</li>
-							<li>
-								<a href="<?php echo SITEURL; ?>admin/users/add/type:4">Woman</a>
-							</li>
-						</ul>
+					<li>
+						<a href="<?php echo SITEURL; ?>admin/users/add">Add User</a>
 					</li>
 				</ul>
 			</li>
-			 <li class='dropdown <?php echo $slider;?>'>
-				<a href="javascript:void(0);" data-toggle="dropdown">Sliders</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="<?php echo SITEURL; ?>admin/sliders">Sliders</a>
-					</li>
-					<li>
-						<a href="<?php echo SITEURL; ?>admin/sliders/add">Add Slider</a>
-					</li>
-				</ul>
-			</li>
-			
-			<li class='dropdown <?php echo $plan;?>'>
-				<a href="javascript:void(0);" data-toggle="dropdown">Plans</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="<?php echo SITEURL; ?>admin/plans">Plans</a>
-					</li>
-					<li>
-						<a href="<?php echo SITEURL; ?>admin/plans/add">Add Plan</a>
-					</li>
-				</ul>
-			</li>
-            <li class='dropdown <?php echo $penalty;?>'>
-				<a href="javascript:void(0);" data-toggle="dropdown">Penalty</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="<?php echo SITEURL; ?>admin/penalty">Penalty</a>
-					</li>
-					<li>
-						<a href="<?php echo SITEURL; ?>admin/penalty/add">Add Penalty</a>
-					</li>
-				</ul>
-			</li>
-                        <li class="<?php echo $messages;?>">
-				<a href="<?php echo SITEURL; ?>admin/messages">Messages</a>
-			</li>-->
-			
-<!--                        <li class="<?php echo $review;?>">
-				<a href="<?php echo SITEURL; ?>admin/reviews">Reviews</a>
-			</li>-->
-<!--                        <li class='dropdown <?php echo $plan;?>'>
-				<a href="javascript:void(0);" data-toggle="dropdown">Plans</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="<?php echo SITEURL; ?>admin/plans">Plans</a>
-					</li>
-					<li>
-						<a href="<?php echo SITEURL; ?>admin/plans/add">Add Plan</a>
-					</li>
-				</ul>
-			</li>-->
 			
 		</ul>
 	</div>

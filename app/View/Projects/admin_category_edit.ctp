@@ -25,23 +25,23 @@
                         <h3><i class="icon-th-list"></i> Category - Edit Category</h3>
                     </div>
                     <div class="box-content nopadding">
-                        <?php echo $this->Form->create('Projects_category', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
-                        <?php echo $this->Form->input('Projects_category.id', array('type' => 'hidden')); ?>
+                        <?php echo $this->Form->create('ProjectsCategory', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
+                        <?php echo $this->Form->input('ProjectsCategory.id', array('type' => 'hidden')); ?>
                         
 
                         
                          <div class="control-group">
                             <label for="textfield" class="control-label">Name <span>*</span></label>
                             <div class="controls">
-                            <?php echo $this->Form->input('Projects_category.category', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                            <?php echo $this->Form->input('ProjectsCategory.category', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>
                         <div class="control-group">                              
                             <label for="textfield" class="control-label">Status</label>
                                 <div class="controls">
                                     <?php
-                                    echo $this->Form->checkbox('Projects_category.status', array(
-                                        'checked' => isset($this->request->data['Projects_category']['status']) && $this->request->data['Projects_category']['status'] == 1 ? 'checked' : false,
+                                    echo $this->Form->checkbox('ProjectsCategory.status', array(
+                                        'checked' => isset($this->request->data['ProjectsCategory']['status']) && $this->request->data['ProjectsCategory']['status'] == 1 ? 'checked' : false,
                                         'hiddenField' => false,
                                     ));
                                     ?> 
@@ -51,7 +51,7 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/testimonials'" class="btn">Cancel</button>
+                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/projects/category'" class="btn">Cancel</button>
                         </div>
 
 
