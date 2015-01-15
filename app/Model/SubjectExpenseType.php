@@ -4,7 +4,16 @@ App::uses('AppModel', 'Model');
  * Country Model
  *
  */
-class Company_structures extends AppModel {
+class SubjectExpenseType extends AppModel {
+    
+    public $validate = array(
+        'expense' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Expense is required'
+            ),
+        ),
+    );
 	
 
     public function afterFind($results, $primary = false) {

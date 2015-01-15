@@ -25,23 +25,23 @@
                         <h3><i class="icon-th-list"></i> Classification - Edit Classification</h3>
                     </div>
                     <div class="box-content nopadding">
-                        <?php echo $this->Form->create('Industry_classifications', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
-                        <?php echo $this->Form->input('Industry_classifications.id', array('type' => 'hidden')); ?>
+                        <?php echo $this->Form->create('IndustryClassification', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
+                        <?php echo $this->Form->input('IndustryClassification.id', array('type' => 'hidden')); ?>
                         
 
                         
                          <div class="control-group">
                             <label for="textfield" class="control-label">Name <span>*</span></label>
                             <div class="controls">
-                            <?php echo $this->Form->input('Industry_classifications.classification', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                            <?php echo $this->Form->input('IndustryClassification.classification', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>
                         <div class="control-group">                              
                             <label for="textfield" class="control-label">Status</label>
                                 <div class="controls">
                                     <?php
-                                    echo $this->Form->checkbox('Industry_classifications.status', array(
-                                        'checked' => isset($this->request->data['Industry_classifications']['status']) && $this->request->data['Industry_classifications']['status'] == 1 ? 'checked' : false,
+                                    echo $this->Form->checkbox('IndustryClassification.status', array(
+                                        'checked' => isset($this->request->data['IndustryClassification']['status']) && $this->request->data['Industry_classifications']['status'] == 1 ? 'checked' : false,
                                         'hiddenField' => false,
                                     ));
                                     ?> 
@@ -51,7 +51,7 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/testimonials'" class="btn">Cancel</button>
+                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/companies/classification'" class="btn">Cancel</button>
                         </div>
 
 

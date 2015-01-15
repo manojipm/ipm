@@ -31,7 +31,7 @@ App::uses('CakeEmail', 'Network/Email');
 class ProjectsController extends AppController {
 
 	public $name = 'Projects';	
-	public $uses = array('Projects_category','Projects_source','Projects_status','Subject_expense_types');
+	public $uses = array('ProjectsCategory','ProjectsSource','SubjectExpenseType');
 	
 	/**
 	* check login for admin and frontend user
@@ -66,9 +66,9 @@ class ProjectsController extends AppController {
             $this->set('title_for_layout', __('All Category',true));
             $conditions = array();
 
-            $this->Projects_category->recursive = 0;
-            $this->paginate = array("limit" => 15, "order" => "Projects_category.category ASC");
-            $this->set('categories', $this->paginate('Projects_category'));
+            $this->ProjectsCategory->recursive = 0;
+            $this->paginate = array("limit" => 15, "order" => "ProjectsCategory.category ASC");
+            $this->set('categories', $this->paginate('ProjectsCategory'));
             
 	}
         
@@ -81,12 +81,12 @@ class ProjectsController extends AppController {
 	 */
 	public function admin_category_view($id = null) {
                 $this->set('title_for_layout', __('View Category',true));
-		$this->Projects_category->id = $id;
-		if (!$this->Projects_category->exists()) {
+		$this->ProjectsCategory->id = $id;
+		if (!$this->ProjectsCategory->exists()) {
 			throw new NotFoundException(__('Invalid Category'));
 		}
 		
-		$this->set('categories', $this->Projects_category->read(null, $id));
+		$this->set('categories', $this->ProjectsCategory->read(null, $id));
 		$this->set('title_for_layout','View Category');
 	}
         
@@ -99,7 +99,7 @@ class ProjectsController extends AppController {
 		$this->set('title_for_layout', __('Add new Category',true));
 		if ($this->request->is('post') || $this->request->is('put')) {
 			
-			if ($this->Projects_category->save($this->request->data)) { 
+			if ($this->ProjectsCategory->save($this->request->data)) { 
 				$this->Session->setFlash(__('The category has been saved successfully.'),'success');
 				$this->redirect(array('action' => 'category'));
 			} else {
@@ -118,14 +118,14 @@ class ProjectsController extends AppController {
 	 */
 	public function admin_category_edit($id = null) {
                 $this->set('title_for_layout', __('Edit Category',true));
-		$this->Projects_category->id = $id;
+		$this->ProjectsCategory->id = $id;
 		//check country exist
-		if (!$this->Projects_category->exists()) {
+		if (!$this->ProjectsCategory->exists()) {
 			$this->Session->setFlash(__('Invalid Category.'),'error');
 			$this->redirect(array('action' => 'category'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Projects_category->save($this->request->data)) {
+			if ($this->ProjectsCategory->save($this->request->data)) {
                                 $this->Session->setFlash(__('The category has been saved successfully.'),'success');
                                 $this->redirect(array('action' => 'category'));
 			} else {
@@ -136,7 +136,7 @@ class ProjectsController extends AppController {
                         
 		} 
 
-		$this->request->data = $this->Projects_category->read(null, $id);
+		$this->request->data = $this->ProjectsCategory->read(null, $id);
 	}
 			
 	/**
@@ -151,12 +151,12 @@ class ProjectsController extends AppController {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
-		$this->Projects_category->id = $id;
-		if (!$this->Projects_category->exists()) {
+		$this->ProjectsCategory->id = $id;
+		if (!$this->ProjectsCategory->exists()) {
 			throw new NotFoundException(__('Invalid category'),'error');
 		}     
                 
-		if ($this->Projects_category->delete()) {
+		if ($this->ProjectsCategory->delete()) {
 			$this->Session->setFlash(__('Category deleted'),'success');
 			$this->redirect(array('action' => 'category'));
 		}
@@ -177,9 +177,9 @@ class ProjectsController extends AppController {
             $this->set('title_for_layout', __('All Source',true));
             $conditions = array();
 
-            $this->Projects_source->recursive = 0;
-            $this->paginate = array("limit" => 15, "order" => "Projects_source.source ASC");
-            $this->set('sources', $this->paginate('Projects_source'));
+            $this->ProjectsSource->recursive = 0;
+            $this->paginate = array("limit" => 15, "order" => "ProjectsSource.source ASC");
+            $this->set('sources', $this->paginate('ProjectsSource'));
             
 	}
         
@@ -192,12 +192,12 @@ class ProjectsController extends AppController {
 	 */
 	public function admin_source_view($id = null) {
                 $this->set('title_for_layout', __('View Source',true));
-		$this->Projects_source->id = $id;
-		if (!$this->Projects_source->exists()) {
+		$this->ProjectsSource->id = $id;
+		if (!$this->ProjectsSource->exists()) {
 			throw new NotFoundException(__('Invalid Source'));
 		}
 		
-		$this->set('sources', $this->Projects_source->read(null, $id));
+		$this->set('sources', $this->ProjectsSource->read(null, $id));
 		$this->set('title_for_layout','View Source');
 	}
         
@@ -210,7 +210,7 @@ class ProjectsController extends AppController {
 		$this->set('title_for_layout', __('Add new Source',true));
 		if ($this->request->is('post') || $this->request->is('put')) {
 			
-			if ($this->Projects_source->save($this->request->data)) { 
+			if ($this->ProjectsSource->save($this->request->data)) { 
 				$this->Session->setFlash(__('The source has been saved successfully.'),'success');
 				$this->redirect(array('action' => 'source'));
 			} else {
@@ -229,14 +229,14 @@ class ProjectsController extends AppController {
 	 */
 	public function admin_source_edit($id = null) {
                 $this->set('title_for_layout', __('Edit Source',true));
-		$this->Projects_source->id = $id;
+		$this->ProjectsSource->id = $id;
 		//check country exist
-		if (!$this->Projects_source->exists()) {
+		if (!$this->ProjectsSource->exists()) {
 			$this->Session->setFlash(__('Invalid Source.'),'error');
 			$this->redirect(array('action' => 'source'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Projects_source->save($this->request->data)) {
+			if ($this->ProjectsSource->save($this->request->data)) {
                                 $this->Session->setFlash(__('The source has been saved successfully.'),'success');
                                 $this->redirect(array('action' => 'source'));
 			} else {
@@ -247,7 +247,7 @@ class ProjectsController extends AppController {
                         
 		} 
 
-		$this->request->data = $this->Projects_source->read(null, $id);
+		$this->request->data = $this->ProjectsSource->read(null, $id);
 	}
 			
 	/**
@@ -262,12 +262,12 @@ class ProjectsController extends AppController {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
-		$this->Projects_source->id = $id;
-		if (!$this->Projects_source->exists()) {
+		$this->ProjectsSource->id = $id;
+		if (!$this->ProjectsSource->exists()) {
 			throw new NotFoundException(__('Invalid Source'),'error');
 		}     
                 
-		if ($this->Projects_source->delete()) {
+		if ($this->ProjectsSource->delete()) {
 			$this->Session->setFlash(__('Source deleted'),'success');
 			$this->redirect(array('action' => 'source'));
 		}
@@ -288,9 +288,9 @@ class ProjectsController extends AppController {
             $this->set('title_for_layout', __('All Expense',true));
             $conditions = array();
 
-            $this->Subject_expense_types->recursive = 0;
-            $this->paginate = array("limit" => 15, "order" => "Subject_expense_types.expense ASC");
-            $this->set('expenses', $this->paginate('Subject_expense_types'));
+            $this->SubjectExpenseType->recursive = 0;
+            $this->paginate = array("limit" => 15, "order" => "SubjectExpenseType.expense ASC");
+            $this->set('expenses', $this->paginate('SubjectExpenseType'));
             
 	}
         
@@ -303,12 +303,12 @@ class ProjectsController extends AppController {
 	 */
 	public function admin_expense_view($id = null) {
                 $this->set('title_for_layout', __('View Expense',true));
-		$this->Subject_expense_types->id = $id;
-		if (!$this->Subject_expense_types->exists()) {
+		$this->SubjectExpenseType->id = $id;
+		if (!$this->SubjectExpenseType->exists()) {
 			throw new NotFoundException(__('Invalid Expense'));
 		}
 		
-		$this->set('expenses', $this->Subject_expense_types->read(null, $id));
+		$this->set('expenses', $this->SubjectExpenseType->read(null, $id));
 		$this->set('title_for_layout','View expense');
 	}
         
@@ -321,7 +321,7 @@ class ProjectsController extends AppController {
 		$this->set('title_for_layout', __('Add new Expense',true));
 		if ($this->request->is('post') || $this->request->is('put')) {
 			
-			if ($this->Subject_expense_types->save($this->request->data)) { 
+			if ($this->SubjectExpenseType->save($this->request->data)) { 
 				$this->Session->setFlash(__('The expense has been saved successfully.'),'success');
 				$this->redirect(array('action' => 'expense'));
 			} else {
@@ -340,14 +340,14 @@ class ProjectsController extends AppController {
 	 */
 	public function admin_expense_edit($id = null) {
                 $this->set('title_for_layout', __('Edit Expense',true));
-		$this->Subject_expense_types->id = $id;
+		$this->SubjectExpenseType->id = $id;
 		//check country exist
-		if (!$this->Subject_expense_types->exists()) {
+		if (!$this->SubjectExpenseType->exists()) {
 			$this->Session->setFlash(__('Invalid expense.'),'error');
 			$this->redirect(array('action' => 'expense'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Subject_expense_types->save($this->request->data)) {
+			if ($this->SubjectExpenseType->save($this->request->data)) {
                                 $this->Session->setFlash(__('The expense has been saved successfully.'),'success');
                                 $this->redirect(array('action' => 'expense'));
 			} else {
@@ -358,7 +358,7 @@ class ProjectsController extends AppController {
                         
 		} 
 
-		$this->request->data = $this->Subject_expense_types->read(null, $id);
+		$this->request->data = $this->SubjectExpenseType->read(null, $id);
 	}
 			
 	/**
@@ -373,12 +373,12 @@ class ProjectsController extends AppController {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
-		$this->Subject_expense_types->id = $id;
-		if (!$this->Subject_expense_types->exists()) {
+		$this->SubjectExpenseType->id = $id;
+		if (!$this->SubjectExpenseType->exists()) {
 			throw new NotFoundException(__('Invalid expense'),'error');
 		}     
                 
-		if ($this->Subject_expense_types->delete()) {
+		if ($this->SubjectExpenseType->delete()) {
 			$this->Session->setFlash(__('Expense deleted'),'success');
 			$this->redirect(array('action' => 'expense'));
 		}

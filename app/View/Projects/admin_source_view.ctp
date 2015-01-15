@@ -28,21 +28,21 @@
                         </h3>
                     </div>
                     <div class="box-content nopadding">
-                        <?php echo $this->Form->create('Projects_Source', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
-                        <?php echo $this->Form->input('Projects_Source.id', array('type' => 'hidden', )); ?>
+                        <?php echo $this->Form->create('ProjectsSource', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
+                        <?php echo $this->Form->input('ProjectsSource.id', array('type' => 'hidden', )); ?>
                         
                           
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Title</label>
-                                <div class="controls"><?php echo $sources['Projects_source']['source']; ?></div>
+                                <div class="controls"><?php echo $sources['ProjectsSource']['source']; ?></div>
                             </div>                            
   							<div class="control-group">
                                 <label for="textfield" class="control-label">Created</label>
-                                <div class="controls"><?php echo $sources['Projects_source']['created'];?></div>
+                                <div class="controls"><?php echo $sources['ProjectsSource']['created'];?></div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Status</label>
-                                <div class="controls"><?php echo ($sources['Projects_source']['status'] == 0) ? 'Deactive' : 'Active'; ?></div>
+                                <div class="controls"><?php echo ($sources['ProjectsSource']['status'] == 0) ? 'Deactive' : 'Active'; ?></div>
                             </div>
                             
                           

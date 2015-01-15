@@ -28,21 +28,21 @@
                         </h3>
                     </div>
                     <div class="box-content nopadding">
-                        <?php echo $this->Form->create('Projects_category', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
-                        <?php echo $this->Form->input('Projects_category.id', array('type' => 'hidden', )); ?>
+                        <?php echo $this->Form->create('ProjectsCategory', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
+                        <?php echo $this->Form->input('ProjectsCategory.id', array('type' => 'hidden', )); ?>
                         
                           
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Title</label>
-                                <div class="controls"><?php echo $categories['Projects_category']['category']; ?></div>
+                                <div class="controls"><?php echo $categories['ProjectsCategory']['category']; ?></div>
                             </div>                            
   							<div class="control-group">
                                 <label for="textfield" class="control-label">Created</label>
-                                <div class="controls"><?php echo $categories['Projects_category']['created'];?></div>
+                                <div class="controls"><?php echo $categories['ProjectsCategory']['created'];?></div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Status</label>
-                                <div class="controls"><?php echo ($categories['Projects_category']['status'] == 0) ? 'Deactive' : 'Active'; ?></div>
+                                <div class="controls"><?php echo ($categories['ProjectsCategory']['status'] == 0) ? 'Deactive' : 'Active'; ?></div>
                             </div>
                             
                           

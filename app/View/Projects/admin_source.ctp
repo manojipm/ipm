@@ -48,22 +48,22 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $num ?></td>
-                                            <td><?php echo $source['Projects_source']['source'] ?></td>
-                                            <td> <?php echo $source['Projects_source']['created']; ?>&nbsp;</td>
+                                            <td><?php echo $source['ProjectsSource']['source'] ?></td>
+                                            <td> <?php echo $source['ProjectsSource']['created']; ?>&nbsp;</td>
                                             <td class="status"><?php
                                                     $controller = $this->Html->url(array("controller" => "projects", "action" => "update_status", "admin" => true));
-                                                    if ($source['Projects_source']['status'] == 1) {
-                                                        echo $this->Html->image("active.png", array("id" => $source['Projects_source']['id'], "title" => "Active", "class" => "act", "escape" => false, "onClick" => "active('" . $controller . "', '".$source['Projects_source']['id']."', 'Projects_source')"));
+                                                    if ($source['ProjectsSource']['status'] == 1) {
+                                                        echo $this->Html->image("active.png", array("id" => $source['ProjectsSource']['id'], "title" => "Active", "class" => "act", "escape" => false, "onClick" => "active('" . $controller . "', '".$source['ProjectsSource']['id']."', 'ProjectsSource')"));
                                                     } else {
-                                                        echo $this->Html->image("inactive.png", array("id" => $source['Projects_source']['id'], "title" => "InActive", "escape" => false, "class" => "act", "onClick" => "active('" . $controller . "','" . $source['Projects_source']['id'] . "', 'Projects_source')"));
+                                                        echo $this->Html->image("inactive.png", array("id" => $source['ProjectsSource']['id'], "title" => "InActive", "escape" => false, "class" => "act", "onClick" => "active('" . $controller . "','" . $source['ProjectsSource']['id'] . "', 'ProjectsSource')"));
                                                     }
                                                     ?>
                                             </td>
                                             <td class="actions">
                                                 <?php
-                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'source_view', $source['Projects_source']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
-                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'source_edit', $source['Projects_source']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
-                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'source_delete', $source['Projects_source']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('delete_assoc_record'), $source['Projects_source']['id']));
+                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'source_view', $source['ProjectsSource']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
+                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'source_edit', $source['ProjectsSource']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
+                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'source_delete', $source['ProjectsSource']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('delete_assoc_record'), $source['ProjectsSource']['id']));
 
                                                 ?>
                                             </td>

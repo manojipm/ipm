@@ -2,8 +2,8 @@
 ################### Constant variable define here all type -: 19-12-2014 #############################
 
 $hostname = $_SERVER['HTTP_HOST'];
-if($hostname == '192.168.4.180' || $hostname == '192.168.4.32' ){
-    define('SITEURL', 'http://'.$hostname.'/IPM/');
+if($hostname == 'localhost' || $hostname == '192.168.4.32' ){
+    define('SITEURL', 'http://'.$hostname.'/git_ipm/ipm/');
 }else{
     define('SITEURL', 'http://'.$hostname);
 }

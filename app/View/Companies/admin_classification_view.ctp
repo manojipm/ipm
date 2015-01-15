@@ -28,21 +28,21 @@
                         </h3>
                     </div>
                     <div class="box-content nopadding">
-                        <?php echo $this->Form->create('Industry_classifications', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
-                        <?php echo $this->Form->input('Industry_classifications.id', array('type' => 'hidden', )); ?>
+                        <?php echo $this->Form->create('IndustryClassification', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
+                        <?php echo $this->Form->input('IndustryClassification.id', array('type' => 'hidden', )); ?>
                         
                           
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Title</label>
-                                <div class="controls"><?php echo $classifications['Industry_classifications']['classification']; ?></div>
+                                <div class="controls"><?php echo $classifications['IndustryClassification']['classification']; ?></div>
                             </div>                            
   							<div class="control-group">
                                 <label for="textfield" class="control-label">Created</label>
-                                <div class="controls"><?php echo $classifications['Industry_classifications']['created'];?></div>
+                                <div class="controls"><?php echo $classifications['IndustryClassification']['created'];?></div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Status</label>
-                                <div class="controls"><?php echo ($classifications['Industry_classifications']['status'] == 0) ? 'Deactive' : 'Active'; ?></div>
+                                <div class="controls"><?php echo ($classifications['IndustryClassification']['status'] == 0) ? 'Deactive' : 'Active'; ?></div>
                             </div>
                             
                           

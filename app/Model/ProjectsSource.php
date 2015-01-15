@@ -1,19 +1,19 @@
 <?php
-
 App::uses('AppModel', 'Model');
-
 /**
- * PlanDetail Model
+ * Country Model
  *
  */
-class PlanDetail extends AppModel {
-
-    /**
-     * Validation rules
-     *
-     * @var array
-     */
-    
+class ProjectsSource extends AppModel {
+	
+    public $validate = array(
+        'source' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Source is required'
+            ),
+        ),
+    );
 
     public function afterFind($results, $primary = false) {
         App::uses('CakeTime', 'Utility');
@@ -24,5 +24,4 @@ class PlanDetail extends AppModel {
         }
         return $results;
     }
-
 }

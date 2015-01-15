@@ -48,22 +48,22 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $num ?></td>
-                                            <td><?php echo $category['Projects_category']['category'] ?></td>
-                                            <td> <?php echo $category['Projects_category']['created']; ?>&nbsp;</td>
+                                            <td><?php echo $category['ProjectsCategory']['category'] ?></td>
+                                            <td> <?php echo $category['ProjectsCategory']['created']; ?>&nbsp;</td>
                                             <td class="status"><?php
                                                     $controller = $this->Html->url(array("controller" => "projects", "action" => "update_status", "admin" => true));
-                                                    if ($category['Projects_category']['status'] == 1) {
-                                                        echo $this->Html->image("active.png", array("id" => $category['Projects_category']['id'], "title" => "Active", "class" => "act", "escape" => false, "onClick" => "active('" . $controller . "', '".$category['Projects_category']['id']."', 'Projects_category')"));
+                                                    if ($category['ProjectsCategory']['status'] == 1) {
+                                                        echo $this->Html->image("active.png", array("id" => $category['ProjectsCategory']['id'], "title" => "Active", "class" => "act", "escape" => false, "onClick" => "active('" . $controller . "', '".$category['ProjectsCategory']['id']."', 'ProjectsCategory')"));
                                                     } else {
-                                                        echo $this->Html->image("inactive.png", array("id" => $category['Projects_category']['id'], "title" => "InActive", "escape" => false, "class" => "act", "onClick" => "active('" . $controller . "','" . $category['Projects_category']['id'] . "', 'Projects_category')"));
+                                                        echo $this->Html->image("inactive.png", array("id" => $category['ProjectsCategory']['id'], "title" => "InActive", "escape" => false, "class" => "act", "onClick" => "active('" . $controller . "','" . $category['ProjectsCategory']['id'] . "', 'ProjectsCategory')"));
                                                     }
                                                     ?>
                                             </td>
                                             <td class="actions">
                                                 <?php
-                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'category_view', $category['Projects_category']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
-                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'category_edit', $category['Projects_category']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
-                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'category_delete', $category['Projects_category']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('delete_assoc_record'), $category['Projects_category']['id']));
+                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'category_view', $category['ProjectsCategory']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
+                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'category_edit', $category['ProjectsCategory']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
+                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'category_delete', $category['ProjectsCategory']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('delete_assoc_record'), $category['ProjectsCategory']['id']));
 
                                                 ?>
                                             </td>

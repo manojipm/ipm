@@ -4,8 +4,16 @@ App::uses('AppModel', 'Model');
  * Country Model
  *
  */
-class Locations_by_division extends AppModel {
+class ProjectsCategory extends AppModel {
 	
+    public $validate = array(
+        'category' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Category is required'
+            ),
+        ),
+    );
 
     public function afterFind($results, $primary = false) {
         App::uses('CakeTime', 'Utility');

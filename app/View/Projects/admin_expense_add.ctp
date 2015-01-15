@@ -25,18 +25,18 @@
                         <h3><i class="icon-th-list"></i> Expense - Add Expense</h3>
                     </div>
                     <div class="box-content nopadding">
-                        <?php echo $this->Form->create('Subject_expense_types', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
+                        <?php echo $this->Form->create('SubjectExpenseType', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
                         <div class="control-group">
                             <label for="textfield" class="control-label">Name <span>*</span></label>
                             <div class="controls">
-                               <?php echo $this->Form->input('Subject_expense_types.expense', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                               <?php echo $this->Form->input('SubjectExpenseType.expense', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="textfield" class="control-label">Status</label>
                             <div class="controls">
                                 <?php
-                                echo $this->Form->checkbox('Subject_expense_types.status', array(
+                                echo $this->Form->checkbox('SubjectExpenseType.status', array(
                                     'value' => '1',
                                     'checked' => 'checked',
                                     'hiddenField' => false,
@@ -47,7 +47,7 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/locations'" class="btn">Cancel</button>
+                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/projects/expense'" class="btn">Cancel</button>
                         </div>
                         
                         

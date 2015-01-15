@@ -48,22 +48,22 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $num ?></td>
-                                            <td><?php echo $classification['Industry_classifications']['classification'] ?></td>
-                                            <td> <?php echo $classification['Industry_classifications']['created']; ?>&nbsp;</td>
+                                            <td><?php echo $classification['IndustryClassification']['classification'] ?></td>
+                                            <td> <?php echo $classification['IndustryClassification']['created']; ?>&nbsp;</td>
                                             <td class="status"><?php
                                                     $controller = $this->Html->url(array("controller" => "companies", "action" => "update_status", "admin" => true));
-                                                    if ($classification['Industry_classifications']['status'] == 1) {
-                                                        echo $this->Html->image("active.png", array("id" => $classification['Industry_classifications']['id'], "title" => "Active", "class" => "act", "escape" => false, "onClick" => "active('" . $controller . "', '".$classification['Industry_classifications']['id']."', 'Industry_classifications')"));
+                                                    if ($classification['IndustryClassification']['status'] == 1) {
+                                                        echo $this->Html->image("active.png", array("id" => $classification['IndustryClassification']['id'], "title" => "Active", "class" => "act", "escape" => false, "onClick" => "active('" . $controller . "', '".$classification['IndustryClassification']['id']."', 'IndustryClassification')"));
                                                     } else {
-                                                        echo $this->Html->image("inactive.png", array("id" => $classification['Industry_classifications']['id'], "title" => "InActive", "escape" => false, "class" => "act", "onClick" => "active('" . $controller . "','" . $classification['Industry_classifications']['id'] . "', 'Industry_classifications')"));
+                                                        echo $this->Html->image("inactive.png", array("id" => $classification['IndustryClassification']['id'], "title" => "InActive", "escape" => false, "class" => "act", "onClick" => "active('" . $controller . "','" . $classification['IndustryClassification']['id'] . "', 'IndustryClassification')"));
                                                     }
                                                     ?>
                                             </td>
                                             <td class="actions">
                                                 <?php
-                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'classification_view', $classification['Industry_classifications']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
-                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'classification_edit', $classification['Industry_classifications']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
-                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'classification_delete', $classification['Industry_classifications']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('delete_assoc_record'), $classification['Industry_classifications']['id']));
+                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'classification_view', $classification['IndustryClassification']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
+                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'classification_edit', $classification['IndustryClassification']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
+                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'classification_delete', $classification['IndustryClassification']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('delete_assoc_record'), $classification['IndustryClassification']['id']));
 
                                                 ?>
                                             </td>

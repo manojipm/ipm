@@ -7,7 +7,7 @@
                     <i class="icon-angle-right"></i>
                 </li>
                 <li>
-                    <a href="<?php echo SITEURL; ?>admin/projects/category">Project Source</a>
+                    <a href="<?php echo SITEURL; ?>admin/projects/source">Project Source</a>
                     <i class="icon-angle-right"></i>
                 </li>
                 <li>
@@ -25,18 +25,18 @@
                         <h3><i class="icon-th-list"></i> Source - Add Source</h3>
                     </div>
                     <div class="box-content nopadding">
-                        <?php echo $this->Form->create('Projects_source', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
+                        <?php echo $this->Form->create('ProjectsSource', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
                         <div class="control-group">
                             <label for="textfield" class="control-label">Name <span>*</span></label>
                             <div class="controls">
-                               <?php echo $this->Form->input('Projects_source.source', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                               <?php echo $this->Form->input('ProjectsSource.source', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="textfield" class="control-label">Status</label>
                             <div class="controls">
                                 <?php
-                                echo $this->Form->checkbox('Projects_source.status', array(
+                                echo $this->Form->checkbox('ProjectsSource.status', array(
                                     'value' => '1',
                                     'checked' => 'checked',
                                     'hiddenField' => false,
@@ -47,7 +47,7 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/locations'" class="btn">Cancel</button>
+                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/projects/source'" class="btn">Cancel</button>
                         </div>
                         
                         

@@ -48,22 +48,22 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $num ?></td>
-                                            <td><?php echo $division['Locations_by_division']['division_type'] ?></td>
-                                            <td> <?php echo $division['Locations_by_division']['created']; ?>&nbsp;</td>
+                                            <td><?php echo $division['LocationsByDivision']['division_type'] ?></td>
+                                            <td> <?php echo $division['LocationsByDivision']['created']; ?>&nbsp;</td>
                                             <td class="status"><?php
                                                     $controller = $this->Html->url(array("controller" => "companies", "action" => "update_status", "admin" => true));
-                                                    if ($division['Locations_by_division']['status'] == 1) {
-                                                        echo $this->Html->image("active.png", array("id" => $division['Locations_by_division']['id'], "title" => "Active", "class" => "act", "escape" => false, "onClick" => "active('" . $controller . "', '".$division['Locations_by_division']['id']."', 'Locations_by_division')"));
+                                                    if ($division['LocationsByDivision']['status'] == 1) {
+                                                        echo $this->Html->image("active.png", array("id" => $division['LocationsByDivision']['id'], "title" => "Active", "class" => "act", "escape" => false, "onClick" => "active('" . $controller . "', '".$division['LocationsByDivision']['id']."', 'LocationsByDivision')"));
                                                     } else {
-                                                        echo $this->Html->image("inactive.png", array("id" => $division['Locations_by_division']['id'], "title" => "InActive", "escape" => false, "class" => "act", "onClick" => "active('" . $controller . "','" . $division['Locations_by_division']['id'] . "', 'Locations_by_division')"));
+                                                        echo $this->Html->image("inactive.png", array("id" => $division['LocationsByDivision']['id'], "title" => "InActive", "escape" => false, "class" => "act", "onClick" => "active('" . $controller . "','" . $division['LocationsByDivision']['id'] . "', 'LocationsByDivision')"));
                                                     }
                                                     ?>
                                             </td>
                                             <td class="actions">
                                                 <?php
-                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'division_view', $division['Locations_by_division']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
-                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'division_edit', $division['Locations_by_division']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
-                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'division_delete', $division['Locations_by_division']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('delete_assoc_record'), $division['Locations_by_division']['id']));
+                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'division_view', $division['LocationsByDivision']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
+                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'division_edit', $division['LocationsByDivision']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
+                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'division_delete', $division['LocationsByDivision']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('delete_assoc_record'), $division['LocationsByDivision']['id']));
 
                                                 ?>
                                             </td>

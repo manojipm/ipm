@@ -5,6 +5,7 @@ $action = $this->params['action'];
 $dashboard = '';
 $page = '';
 $user = '';
+$masters = '';
 $agency = '';
 $banner = '';
 $setting = '';
@@ -19,6 +20,9 @@ $products   = '';
 $messages   = '';
 if ($controller == 'dashboards' && $action == ('index' || 'add' || 'edit' || 'delete')) {
     $dashboard = ' active';
+}
+if ($controller == 'locations' || $controller == 'projects' || $controller == 'companies' && $action == ('index' || 'add' || 'edit' || 'delete')) {
+    $masters = ' active';
 }
 if ($controller == 'users' && $action == ('index' || 'add' || 'edit' || 'delete')) {
     $user = ' active';
@@ -74,47 +78,54 @@ if($controller == 'messages' && $action ==('index'||'add'||'edit'||'delete')){
            
 
 
-            <li class='<?php echo $user; ?>'>
+            <li class='<?php echo $masters; ?>'>
                 <a href="javascript:void(0);" data-toggle="dropdown" class='dropdown-toggle'>
                     <span>Masters</span>
                     <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
 					<li>
-						<a href="<?php echo SITEURL; ?>admin/users">Country</a>
+						<a href="<?php echo SITEURL; ?>admin/locations/country">Country</a>
 					</li>
 					<li>
-						<a href="<?php echo SITEURL; ?>admin/users">State</a>
+						<a href="<?php echo SITEURL; ?>admin/locations/state">State</a>
 					</li>
 					<li>
-						<a href="<?php echo SITEURL; ?>admin/users">Zone</a>
+						<a href="<?php echo SITEURL; ?>admin/locations/zone">Zone</a>
 					</li>
 					<li>
-						<a href="<?php echo SITEURL; ?>admin/users">City</a>
+						<a href="<?php echo SITEURL; ?>admin/locations/city">City</a>
 					</li>
 					<li>
-						<a href="<?php echo SITEURL; ?>admin/users">Street</a>
+						<a href="<?php echo SITEURL; ?>admin/companies/division">Location By division Type</a>
 					</li>
 					<li>
-						<a href="<?php echo SITEURL; ?>admin/users">Zip</a>
+						<a href="<?php echo SITEURL; ?>admin/companies/classification">Industry Classification</a>
 					</li>
 					<li>
-						<a href="<?php echo SITEURL; ?>admin/users">Location By division Type</a>
-					</li>
-					<li>
-						<a href="<?php echo SITEURL; ?>admin/users">Industry Classification</a>
-					</li>
-					<li>
-						<a href="<?php echo SITEURL; ?>admin/users">Company Structure</a>
-					</li> <li>
-						<a href="<?php echo SITEURL; ?>admin/users">Project Status</a>
-					</li> <li>
-						<a href="<?php echo SITEURL; ?>admin/users">Project Source</a>
-					</li> <li>
-						<a href="<?php echo SITEURL; ?>admin/users">Subject Expense Type</a>
-					</li> <li>
-						<a href="<?php echo SITEURL; ?>admin/users">Project Category</a>
+						<a href="<?php echo SITEURL; ?>admin/companies/structure">Company Structure</a>
 					</li> 
+                                        <li>
+						<a href="<?php echo SITEURL; ?>admin/projects/source">Project Source</a>
+					</li> 
+                                        <li>
+						<a href="<?php echo SITEURL; ?>admin/projects/expense">Subject Expense Type</a>
+					</li> 
+                                        <li>
+						<a href="<?php echo SITEURL; ?>admin/projects/category">Project Category</a>
+					</li> 
+                </ul>
+            </li>
+            
+            <li class='<?php echo $user; ?>'>
+                <a href="javascript:void(0);" data-toggle="dropdown" class='dropdown-toggle'>
+                    <span>Admin Users</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+			<a href="<?php echo SITEURL; ?>admin/users">Users</a>
+                    </li>
                 </ul>
             </li>
 
