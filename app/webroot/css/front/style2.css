@@ -1,0 +1,167 @@
+/* CSS Document */
+/* @import url("reset.css"); */
+body {font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#333; }
+.full {width:100%; float:left;}
+img { max-width:100%; height:auto;}
+h1 {margin:0px; padding:0px 0px 10px 0px; font-size:24px; font-family: 'Oswald', sans-serif;}
+h2 {margin:0px; padding:0px 0px 10px 0px; font-size:22px; font-family: 'Oswald', sans-serif;}
+h3 {margin:0px; padding:0px 0px 10px 0px; font-size:20px; font-family: 'Oswald', sans-serif;}
+h4 {margin:0px; padding:0px 0px 10px 0px; font-size:18px; font-family: 'Oswald', sans-serif;}
+h5 {margin:0px; padding:0px 0px 10px 0px; font-size:16px; }
+h6 {margin:0px; padding:0px 0px 10px 0px; font-size:14px;}
+
+p {margin:0px; padding:0px 0px 15px 0px; }
+p.sub { font-size:14px; line-height:20px;}
+
+a { color:#0049a4;}
+
+p strong{font-weight:bold;}
+strong{ font-weight:bold;}
+.clear{clear:both;}
+
+
+
+/* Header CSS Starts Here */
+.header { background:url(../images/header-bg.jpg) top center repeat-y #0247a6;    padding-bottom: 15px; padding-top:10px;}
+.header .brand { padding-top:8px;} 
+.navbar-inverse {  background-color: #00225a;  border-color: #00225a;}
+.navbar-inverse .navbar-nav > li > a {   color: #fff; }
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus{ background:url(../images/nav-top-bar.jpg) left top repeat-x #0049a4; color: #fff;}
+
+.navbar-inverse .navbar-nav > .red-active > a, 
+.navbar-inverse .navbar-nav > .red-active > a:hover, 
+.navbar-inverse .navbar-nav > .red-active > a:focus {
+  -webkit-box-shadow:inset 0px 0px 0px 1px #7b0c26;
+    -moz-box-shadow:inset 0px 0px 0px 1px #7b0c26;
+    box-shadow:inset 0px 0px 0px 1px #7b0c26;
+background: #a80329; /* Old browsers */
+background: -moz-linear-gradient(top,  #a80329 0%, #7b0c26 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a80329), color-stop(100%,#7b0c26)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #a80329 0%,#7b0c26 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #a80329 0%,#7b0c26 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #a80329 0%,#7b0c26 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #a80329 0%,#7b0c26 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a80329', endColorstr='#7b0c26',GradientType=0 ); /* IE6-9 */}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus{ background:url(../images/nav-top-bar.jpg) left top repeat-x #0049a4; color: #fff;}
+.nav > li > a { padding-left:35px; padding-right:35px;}
+
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #fff;
+  background:url(../images/nav-top-bar.jpg) left top repeat-x #0049a4;
+}
+.navbar-right { margin-right:0px;}
+#carousel { padding:25px 75px; background:#eee;}
+#carousel .flex-control-nav { display:none;}
+#carousel .flex-direction-nav a:before { font-size:53px;}
+#carousel .flex-direction-nav a { height:44px;}
+.crausel-slider { clear:both; margin-bottom:30px;}
+.banner { margin-bottom:60px;}
+
+.news-cell { margin:0 0 0 0px; padding:0 0 0 0px;} 
+.news-cell h4 {color:#FFF; padding:12px 12px 12px 15px; background:#012d76;}
+.news-cell ul { margin-bottom:10px; padding-left:0px;}
+.news-cell ul li { padding:15px 0; border-bottom:solid 1px #dddddd; overflow:hidden;}
+.news-cell ul li h5 { font-family:Arial, Helvetica, sans-serif; font-weight:bold;}
+.news-cell ul li h5 a {color:#000;}
+.news-cell ul li h5 a:hover { text-decoration:none; color:#0049a4;}
+.news-cell ul li  p { line-height:24px;}
+.news-cell .img-left { float:left; margin-right:20px;}
+.news-cell .btn.btn-danger { background:#a80329; border:solid 1px #7b0c26; font-weight:bold; padding:6px 20px; }
+.news-cell .btn.btn-danger:hover { background:#c00a34;}
+
+.test-cell { margin:0 0 0 0px; padding:0 0 0 0px;} 
+.test-cell h4 {color:#FFF; padding:12px 12px 12px 15px; background:#012d76;}
+.test-cell ul { margin-bottom:10px;}
+.test-cell ul li { padding:15px 0; border-bottom:solid 1px #dddddd; overflow:hidden;}
+.test-cell ul li h6 { text-align:right; font-weight:bold; font-size:13px; padding-bottom:0px;}
+.test-cell ul li  p { line-height:24px;}
+.test-cell ul li  p i { font-size:28px; color:#d9d9d9;}
+.test-cell ul li  p i.fa-quote-right {vertical-align: text-top;}
+.test-cell .img-left { float:left; margin-right:20px;}
+.test-cell .btn.btn-danger { background:#a80329; border:solid 1px #7b0c26; font-weight:bold; padding:6px 20px;}
+.test-cell .btn.btn-danger:hover { background:#c00a34;}
+
+.main { margin-bottom:50px;}
+
+.footer {color:#fff; background:#00225a;}
+.footer .foot-links { padding:50px 0; }
+.footer .foot-links a { color:#fff;}
+.footer .foot-links h3 { color:#ed1b31; border-bottom:solid 1px #003d95; padding-bottom:16px;}
+.footer .foot-links ul { padding-top:20px; border-top:solid 1px #000;}
+.footer .foot-links ul li { line-height: 20px; margin-bottom: 10px; position:relative; list-style:none;}
+.footer .foot-links ul li:before {content: "\f104"; font-family: "FontAwesome"; font-size:18px; transition:all ease-in 0.4s ; position:absolute; left:0px;}
+.footer .foot-links ul li a{ padding-left:20px; transition:all ease-in 0.6s; display:block;}
+.footer .foot-links ul li a:hover { color:#3a72ce; text-decoration:none; transition:all ease-out 0.1s; }
+.footer .foot-links ul li:hover:before { left: 5px; position: absolute; transition: all 0.1s ease-in 0s;}
+
+.footer .foot-copy { background:#011139; padding:40px 0; }
+.footer .foot-copy p { line-height:30px; padding-bottom:0px; color:#3a72ce;  }
+ul.social {text-align:right;}
+ul.social li a i { height:30px; width:30px; text-align:center; border-radius:50%; line-height:20px; color:#fff;  padding:5px; font-size:16px;   transform: translateZ(0px); }
+@keyframes push {50% {    transform: scale(0.8);}100% {    transform: scale(1);}}
+ul.social li a i:hover{ animation-duration: 0.3s; animation-iteration-count: 1; animation-name: push; animation-timing-function: linear;}
+ul.social li a i.fa-facebook {background:#3a589b;}
+ul.social li a i.fa-twitter {background:#2ca9e1;}
+ul.social li a i.fa-google-plus {background:#d6492f;}
+ul.social li { display:inline-block; margin:0 0 0 10px; }
+
+.login-cell { border:solid 1px #aaa; padding:30px; border-radius:10px;}
+.btn-primary{background-color: #0049a4; border-color: #00225a; color:#fff;}
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+background-color: #00387d; border-color: #00225a; color: #fff;}
+.panel-primary {border-color: #d0d0d0;}
+.panel-primary > .panel-heading {background-color: #00225a; border-color: #00225a; color: #fff;}
+.panel-primary > .panel-heading h4 { padding-bottom:0px;}
+
+.girls-online { padding-bottom:5px;}
+.girls-online ul{ margin:0px; padding:0px;}
+.girls-online ul li { list-style:none; display:inline-block; margin-left:15px; margin-bottom:7px; }
+.girls-online ul li  img { margin-bottom:7px;}
+.girls-online ul li:first-child { margin-left:0px;} 
+.girls-online ul li .online-txt { display:block; text-align:center;}
+.girls-online ul li .online-txt i { color:#11b200;}
+
+.girls-online-left { margin:0px; padding:0px; }
+.girls-online-left li {border-top: 1px dotted #aaa; list-style: outside none none; overflow: hidden; padding: 10px 0;}
+.girls-online-left li:first-child { border:none; padding-top:0px;}
+.girls-online-left li .img-left { float:left; margin-right:10px;}
+.girls-online-left li i { color:#0C0;}
+
+ul.Romance{ padding-left:0px;}
+ul.Romance h5 { font-size:17px; border-bottom:solid 1px #d0d0d0; margin-bottom:15px; padding-bottom:7px; }
+ul.Romance h5 a { color:#a80329; }
+ul.Romance li { list-style:none; overflow:hidden; margin-bottom:10px;}
+ul.Romance li .img-bdr-left { float:left; margin-right:15px; border:solid 1px #ccc; margin-bottom:15px;}
+ul.Romance li  p { font-size:12px; line-height:20px;}
+
+@media screen and (max-width:1023px) {
+.nav > li > a {padding-left: 25px; padding-right: 25px;}	
+.girls-online ul li {margin-left:10px; }
+.news-cell { margin-bottom:20px; overflow:hidden;}
+}
+@media screen and (max-width:767px) {
+.header .brand { text-align:center;}
+.footer .foot-links ul { margin-bottom: 30px;  padding-top: 10px; padding-left:10px;}	
+.footer .foot-links {  padding: 20px 0;}
+ul.social {text-align: center;}
+.footer .foot-copy p { text-align:center; margin-bottom:20px;}
+.navbar-nav { margin: 7.5px -15px;}
+.news-cell .img-left { width: 120px;}
+.test-cell .img-left  { width: 120px;}
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus { background-color: #a80329;}
+.navbar-inverse .navbar-toggle {border-color: #a80329;}
+.container { margin-left: auto;  margin-right: auto;   }
+.mr-bt-20 { margin-bottom:20px;}
+.login-cell { padding:15px;} 
+}
+
+.man-register .input-group[class*="col-"] { float: left; padding-left: 15px; padding-right: 15px;}
+
