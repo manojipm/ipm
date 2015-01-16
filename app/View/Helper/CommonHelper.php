@@ -108,20 +108,55 @@ class CommonHelper extends Helper {
         $users = ClassRegistry::init('User')->find('first',array('conditions'=>array('User.id'=>$id),'fields'=>array('User.id','UserProfile.first_name','UserProfile.last_name','UserProfile.nickname')) );
         return isset($users['UserProfile']) ? $users['UserProfile']["nickname"] : '-';
     }
+    
+    
     public function getCountryList(){
+        $countries = ClassRegistry::init('Country')->find('list', array('fields' => array('id', 'country')));
+        return isset($countries) ? $countries : array();
+    }
+    
+    public function getStateList(){
+        $countries = ClassRegistry::init('State')->find('list', array('fields' => array('id', 'state')));
+        return isset($countries) ? $countries : array();
+    }
+    
+    public function getCityList(){
+        $countries = ClassRegistry::init('City')->find('list', array('fields' => array('id', 'city')));
+        return isset($countries) ? $countries : array();
+    }
+    
+    public function getCompanyStructure(){
+        $structures = ClassRegistry::init('CompanyStructure')->find('list', array('fields' => array('id', 'structure')));
+        return isset($structures) ? $structures : array();
+    }    
+    
+    public function getIndustryClassification(){
+        $classifications = ClassRegistry::init('IndustryClassification')->find('list', array('fields' => array('id', 'classification')));
+        return isset($classifications) ? $classifications : array();
+    }
+    
+    
+
+    
+    /*public function getCountryList(){
         $countries = ClassRegistry::init('Country')->find('list', array('fields' => array('iso_code', 'name')));
         return isset($countries) ? $countries : array();
     }
+    
+    
     public function getStateList($country_id = ''){
 		if(empty($country_id)){ $country_id =  COUNTRY_CODE; }
 		
         $ststes = ClassRegistry::init('State')->find('list',array('conditions'=>array('State.country_iso_code'=> $country_id), 'fields' => array('id', 'name'),'order'=>array('name ASC')) );
         return isset($ststes) ? $ststes : array();
+    
     }
     public function getCityList(){
         $cities = ClassRegistry::init('City')->find('list',array('conditions'=>array('City.country_iso_code'=> COUNTRY_CODE), array('fields' => array('id', 'name'))) );
         return isset($cities) ? $cities : array();
-    }
+    }*/
+    
+    
     public function getLanguageList(){
         $languages = ClassRegistry::init('Language')->find('list',array('conditions'=>array('Language.status'=> 1), array('fields' => array('id', 'name'))) );
         return isset($languages) ? $languages : array();

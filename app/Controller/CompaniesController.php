@@ -1,8 +1,8 @@
 <?php
 /**
- * Users controller.
+ * Companies controller.
  *
- * This file will render views from views/Users/
+ * This file will render views from views/Companies/
  *
  * PHP 5
  *
@@ -21,8 +21,9 @@
 
 App::uses('Controller/Component','Auth','Session', 'RequestHandler');
 App::uses('CakeEmail', 'Network/Email');
+
 /**
- * Users Controller
+ * Companies Controller
  *
  * @property User $User
  * @property PaginatorComponent $Paginator
@@ -31,7 +32,7 @@ App::uses('CakeEmail', 'Network/Email');
 class CompaniesController extends AppController {
 
 	public $name = 'Companies';	
-	public $uses = array('IndustryClassification','LocationsByDivision','CompanyStructure');
+	public $uses = array('Company', 'IndustryClassification','LocationsByDivision','CompanyStructure');
 	
 	/**
 	* check login for admin and frontend user
@@ -48,14 +49,52 @@ class CompaniesController extends AppController {
 	
 	public function beforeFilter() {
 		parent::beforeFilter();	
-                $this->set('controller', 'companies');
-               // $this->set('model', 'Testimonial');
+	    $this->set('controller', 'companies');
+	    $this->set('model', 'Company');
 				
 	}
 	
+	/**
+	 * Displays a company view
+	 *
+	 * @param mixed What page to display
+	 * @return void
+	 */	
+	public function admin_index(){
+	
+            $this->set('title_for_layout', __('All Companies',true));
+            $conditions = array();
+
+            $this->Company->recursive = 0;
+            $this->paginate = array("limit" => 15, "order" => "Company.created DESC");
+            $this->set('companies', $this->paginate());
+	}
+	
+	/**
+	 * Displays a company view
+	 *
+	 * @param mixed What page to display
+	 * @return void
+	 */	
+	public function admin_add()
+	{
+		$this->set('title_for_layout', __('Add Company',true));
+		if ($this->request->is('post') || $this->request->is('put')) {
+			
+			if ($this->Company->save($this->request->data)) { 
+				$this->Session->setFlash(__('Company has been saved successfully.'),'success');
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('Compnay could not be saved. Please, try again.'),'error');
+		
+			}
+		}   
+	}
+	
+	
 	/*======================= COMPANY STRUCTURE FUNCTIONS =========================*/
         
-        /**
+   	/**
 	 * Displays a view
 	 *
 	 * @param mixed What page to display
@@ -79,8 +118,9 @@ class CompaniesController extends AppController {
 	 * @param string $id
 	 * @return void
 	 */
-	public function admin_structure_view($id = null) {
-                $this->set('title_for_layout', __('View Structure',true));
+	public function admin_structure_view($id = null)
+	{
+        $this->set('title_for_layout', __('View Structure',true));
 		$this->CompanyStructure->id = $id;
 		if (!$this->CompanyStructure->exists()) {
 			throw new NotFoundException(__('Invalid Structure'));
@@ -90,7 +130,7 @@ class CompaniesController extends AppController {
 		$this->set('title_for_layout','View Structure');
 	}
         
-         /**
+    /**
 	 * admin_structure_add method
 	 *
 	 * @return void
@@ -109,7 +149,7 @@ class CompaniesController extends AppController {
 		}
 	}
         
-        /**
+   	/**
 	 * admin_structure_edit method
 	 *
 	 * @throws NotFoundException
@@ -117,7 +157,7 @@ class CompaniesController extends AppController {
 	 * @return void
 	 */
 	public function admin_structure_edit($id = null) {
-                $this->set('title_for_layout', __('Edit Structure',true));
+        $this->set('title_for_layout', __('Edit Structure',true));
 		$this->CompanyStructure->id = $id;
 		//check country exist
 		if (!$this->CompanyStructure->exists()) {

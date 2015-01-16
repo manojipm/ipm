@@ -225,6 +225,29 @@ if($controller == 'messages' && $action ==('index'||'add'||'edit'||'delete')){
 			
 		</ul>
 	</div>
+	
+		<div class="subnav">
+		<div class="subnav-title">
+			<a href="javascript:void(0);" class='toggle-subnav'><i class="icon-angle-down"></i><span>Company Manager</span></a>
+		</div>
+		<ul class="subnav-menu">
+
+			<li class='dropdown <?php echo $testimonial;?>'>
+				<a href="javascript:void(0);" data-toggle="dropdown">Companies</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="<?php echo SITEURL; ?>admin/companies">Companies</a>
+					</li>
+					<li>
+						<a href="<?php echo SITEURL; ?>admin/companies/add">Add Company</a>
+					</li>
+				</ul>
+			</li>
+			
+		</ul>
+	</div>
+	
+	
 <!--	<div class="subnav">
 		<div class="subnav-title">
 			<a href="javascript:void(0);" class='toggle-subnav'><i class="icon-angle-down"></i><span>Settings</span></a>
