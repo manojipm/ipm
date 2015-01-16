@@ -1,4 +1,8 @@
 <?php
+
+echo $this->Html->script(array(
+    'comman',
+    ));
 $controller = $this->params['controller'];
 $action = $this->params['action'];
 

@@ -44,28 +44,39 @@
                     'themes'
                 )
         );
-//        echo $this->Html->script(array(
-//            'jquery-min-2.0.2',
-//            'AdminLTE/app',
-//            'jquery-migrate-1.2.1.min',
-//            'admin',
-//                )
-//        );
         ?>
-
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
         <?php
         echo $this->fetch('meta');
-        //echo $this->fetch('css');
-       // echo $this->fetch('script');
         ?>
+        <?php
+        echo $this->Html->script(array(
+            'jquery.min',
+            'plugins/nicescroll/jquery.nicescroll.min',
+            'plugins/imagesLoaded/jquery.imagesloaded.min',
+            'plugins/jquery-ui/jquery.ui.core.min',
+            'plugins/jquery-ui/jquery.ui.widget.min',
+            'plugins/jquery-ui/jquery.ui.mouse.min',
+            'plugins/jquery-ui/jquery.ui.resizable.min',
+            'plugins/jquery-ui/jquery.ui.sortable.min',
+            'plugins/slimscroll/jquery.slimscroll.min',
+            'bootstrap.min',
+            'plugins/bootbox/jquery.bootbox',
+            'plugins/datatable/jquery.dataTables.min',
+            'plugins/datatable/TableTools.min',
+            'plugins/datatable/ColReorder.min',
+            'plugins/datatable/ColVis.min',
+            'plugins/datatable/jquery.dataTables.columnFilter',
+            'plugins/chosen/chosen.jquery.min',
+            'eakroko.min',
+            'application.min',
+            'demonstration.min',
 
+        ));
+        ?>
     </head>
-    <body class="" > <?php echo $this->element('admin/header'); ?>
+    <body class="" > 
+       
+        <?php echo $this->element('admin/header'); ?>
         <div class="container-fluid" id="content">
             <section style="padding-left:16%;">
             <?php echo $this->Session->flash(); ?>
@@ -82,42 +93,8 @@
     </body>
 </html>
 
-<?php
-echo $this->Html->script(array(
-    'jquery.min',
-    'plugins/nicescroll/jquery.nicescroll.min',
-    'plugins/imagesLoaded/jquery.imagesloaded.min',
-    'plugins/jquery-ui/jquery.ui.core.min',
-    'plugins/jquery-ui/jquery.ui.widget.min',
-    'plugins/jquery-ui/jquery.ui.mouse.min',
-    'plugins/jquery-ui/jquery.ui.resizable.min',
-    'plugins/jquery-ui/jquery.ui.sortable.min',
-    'plugins/slimscroll/jquery.slimscroll.min',
-    'bootstrap.min',
-    'plugins/bootbox/jquery.bootbox',
-    'plugins/datatable/jquery.dataTables.min',
-    'plugins/datatable/TableTools.min',
-    'plugins/datatable/ColReorder.min',
-    'plugins/datatable/ColVis.min',
-    'plugins/datatable/jquery.dataTables.columnFilter',
-    'plugins/chosen/chosen.jquery.min',
-    'eakroko.min',
-    'application.min',
-    'demonstration.min',
-    'comman',
-));
-?>
 
 
-<!--[if lte IE 9]>
-        <script src="js/plugins/placeholder/jquery.placeholder.min.js"></script>
-        <script>
-                $(document).ready(function() {
-                        $('input, textarea').placeholder();
-                });
-        </script>
-<![endif]-->
-<!-- Favicon -->
 
 <script>
     $(function () {

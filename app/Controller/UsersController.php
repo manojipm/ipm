@@ -112,7 +112,9 @@ class UsersController extends AppController {
 			$this->Session->setFlash(__('Invalid User.'),'error');
 			$this->redirect(array('action' => 'index'));
 		}
-                
+                if(!empty($this->request->data['User']['npassword'])){
+                $this->request->data['User']['password'] = $this->request->data['User']['npassword'];
+                }
                 
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->save($this->request->data)) {
