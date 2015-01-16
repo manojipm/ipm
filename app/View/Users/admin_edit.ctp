@@ -66,12 +66,14 @@
                                     echo $this->Form->checkbox('pass', array(
                                         'checked' => false,
                                         'hiddenField' => false,
-                                        'onclick' => '',
                                     ));
                                     ?> 
-                                    
-                                   <?php echo $this->Form->input('password', array('label' => false,'div'=>false,'maxlength'=>20, 'class' => 'input-xlarge')); ?>
                                 </div>
+                            <div id="chngpass" style="display: none;">
+                                <div class="controls">
+                                   <?php echo $this->Form->input('npassword', array('type' => 'password','label' => false,'div'=>false,'maxlength'=>20, 'class' => 'input-xlarge')); ?>
+                                </div>
+                            </div>
                             </label>
                         </div>
 
