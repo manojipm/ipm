@@ -45,7 +45,7 @@
                                 if (!empty($users)) {
                                     $num = 1;
                                     foreach ($users as $user) {
-                                        if($user['User']['id'] != '1'){?>
+                                ?>
                                         <tr>
                                             <td><?php echo $num ?></td>
                                             <td><?php echo $user['User']['email'] ?></td>
@@ -70,7 +70,7 @@
                                         </tr>
                                         <?php
                                         $num++;
-                                    }}//end foreach
+                                    }//end foreach
                                 } else {
                                     ?>
                                     <tr>

@@ -12,32 +12,8 @@ class User extends AppModel {
      * Validation rules
      *
      * @var array
-     */
- /*   public $hasOne = array(
-        'UserProfile' => array(
-            'className' => 'UserProfile',
-            'dependent' => true
-        ),
-        'UserVideo' => array(
-            'className' => 'UserVideo',
-            'dependent' => true
-        ),
-        'UserImage' => array(
-            'className' => 'UserImage',
-            'dependent' => true
-        ),
-    );
-    //public $hasMany = array('UserImage');
-    public $hasAndBelongsToMany = array(
-        'Language' => array(
-            'className' => 'Language',
-            'joinTable' => 'users_languages',
-            'foreignKey' => 'user_id',
-            'associationForeignKey' => 'language_id',
-            'unique' => 'keepExisting',
-            'dependent' => true
-        )
-    );*/
+     */    
+       
     public $validate = array(
         'email' => array(
             'required' => array(

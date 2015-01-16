@@ -26,12 +26,23 @@
                     </div>
                     <div class="box-content nopadding">
                         <?php echo $this->Form->create('User', array('type' => 'file', 'class' => 'form-horizontal form-bordered')); ?>
-                        <?php echo $this->Form->input('User.id', array('type' => 'hidden')); ?>
+                        <?php echo $this->Form->input('User.id', array('type' => 'hidden')); 
+                              echo $this->Form->input('UserDetail.id', array('type' => 'hidden'));?>
                         
-
-                        
-                         <div class="control-group">
-                            <label for="textfield" class="control-label">Name <span>*</span></label>
+                        <div class="control-group">
+                            <label for="textfield" class="control-label">First Name <span>*</span></label>
+                            <div class="controls">
+                            <?php echo $this->Form->input('UserDetail.first_name', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="textfield" class="control-label">Last Name <span>*</span></label>
+                            <div class="controls">
+                            <?php echo $this->Form->input('UserDetail.last_name', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="textfield" class="control-label">Email <span>*</span></label>
                             <div class="controls">
                             <?php echo $this->Form->input('User.email', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
@@ -45,6 +56,21 @@
                                         'hiddenField' => false,
                                     ));
                                     ?> 
+                                </div>
+                            </label>
+                        </div>
+                        <div class="control-group">                              
+                            <label for="textfield" class="control-label">Change Password</label>
+                                <div class="controls">
+                                    <?php
+                                    echo $this->Form->checkbox('pass', array(
+                                        'checked' => false,
+                                        'hiddenField' => false,
+                                        'onclick' => '',
+                                    ));
+                                    ?> 
+                                    
+                                   <?php echo $this->Form->input('password', array('label' => false,'div'=>false,'maxlength'=>20, 'class' => 'input-xlarge')); ?>
                                 </div>
                             </label>
                         </div>

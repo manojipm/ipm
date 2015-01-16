@@ -43,13 +43,13 @@
                         <div class="control-group">
                             <label for="textfield" class="control-label">First Name <span>*</span></label>
                             <div class="controls">
-                               <?php echo $this->Form->input('UsersDetail.first_name', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                               <?php echo $this->Form->input('UserDetail.first_name', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="textfield" class="control-label">Last Name <span>*</span></label>
                             <div class="controls">
-                               <?php echo $this->Form->input('UsersDetail.last_name', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                               <?php echo $this->Form->input('UserDetail.last_name', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>
                         <div class="control-group">

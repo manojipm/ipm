@@ -6,8 +6,9 @@ App::uses('AppModel', 'Model');
  * User Model
  *
  */
-class UsersDetail extends AppModel {
-
+class UserDetail extends AppModel {
+    
+    
     public $validate = array(
         'first_name' => array(
             'required' => array(

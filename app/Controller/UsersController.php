@@ -32,8 +32,7 @@ class UsersController extends AppController {
 
     var $name = 'Users';
     //public $uses = array('User', 'Language', 'Country', 'State', 'City','UserImage');
-    public $uses = array('User','UsersDetail');
-
+    public $uses = array('User','UserDetail');
     /**
      * check login for admin and frontend user
      * allow and deny user
@@ -62,10 +61,10 @@ class UsersController extends AppController {
      */
     public function admin_index() {
         $this->set('title_for_layout', __('All Users',true));
-            $conditions = array();
+            $conditions = array('User.status' => 1, 'NOT' => array('User.role_id' => array(1)));
 
             $this->User->recursive = 0;
-            $this->paginate = array("limit" => 15, "order" => "User.id ASC");
+            $this->paginate = array("conditions" => $conditions, "limit" => 15, "order" => "User.id ASC");
             $this->set('users', $this->paginate('User'));
     }
 
@@ -80,11 +79,11 @@ class UsersController extends AppController {
 			
 			if ($result = $this->User->save($this->request->data)) { 
                            
-                            $this->request->data['UsersDetail']['user_id'] = $this->User->getLastInsertId();
+                            $this->request->data['UserDetail']['user_id'] = $this->User->getLastInsertId();
                             
-                            if(!empty($this->request->data['UsersDetail'])){
+                            if(!empty($this->request->data['UserDetail'])){
                              
-                            $this->UsersDetail->save($this->request->data);
+                            $this->UserDetail->save($this->request->data);
                             }
                             
                             $this->Session->setFlash(__('The user has been saved successfully.'),'success');
@@ -113,8 +112,14 @@ class UsersController extends AppController {
 			$this->Session->setFlash(__('Invalid User.'),'error');
 			$this->redirect(array('action' => 'index'));
 		}
+                
+                
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->save($this->request->data)) {
+                            
+                            if(!empty($this->request->data['UserDetail'])){
+                            $this->UserDetail->save($this->request->data);
+                            }
                                 $this->Session->setFlash(__('The user has been saved successfully.'),'success');
                                 $this->redirect(array('action' => 'index'));
 			} else {
@@ -123,9 +128,10 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'),'error');
 			}
                         
-		} 
-
+		}
+                $this->User->bindModel(array('hasOne'=>array('UserDetail')));
 		$this->request->data = $this->User->read(null, $id);
+               
     }
 
     /**

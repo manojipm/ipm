@@ -28,7 +28,7 @@
                     <div class="box-content nopadding">
                         <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid">
                         <div class="table-holder">
-						<table class="table table-hover table-nomargin dataTable table-bordered">
+			<table class="table table-hover table-nomargin dataTable table-bordered">
                             <thead>
                                 <tr>
                                     <th>S.No.</th>

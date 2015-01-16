@@ -60,8 +60,8 @@
 
         <?php
         echo $this->fetch('meta');
-        echo $this->fetch('css');
-        echo $this->fetch('script');
+        //echo $this->fetch('css');
+       // echo $this->fetch('script');
         ?>
 
     </head>
@@ -104,6 +104,7 @@ echo $this->Html->script(array(
     'eakroko.min',
     'application.min',
     'demonstration.min',
+    'comman',
 ));
 ?>
 

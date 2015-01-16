@@ -32,16 +32,6 @@
 	<div class="page">
 		<?php
 			echo $this->element('front/header'); // Common to all
-			if(isset($this->request->params['agency']) && !empty($this->request->params['agency'])){
-				echo $this->element('front/agencyinnerheader');
-			}else if(isset($this->request->params['woman']) && !empty($this->request->params['woman'])){
-				echo $this->element('front/innerheader');
-			}else if(isset($this->request->params['man']) && !empty($this->request->params['man'])){
-				echo $this->element('front/innerheader');
-			}else if(isset($this->request->params['pass'][0]) && $this->request->params['pass'][0] == 'home'){
-					echo $this->element('front/banner');
-					echo $this->element('front/feature-banner');
-			}
 			echo $this->Session->flash();
 			// Common For All
 			echo $this->fetch('content');
