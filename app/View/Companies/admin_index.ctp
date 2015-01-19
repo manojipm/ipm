@@ -85,9 +85,9 @@
                                             </td>
                                             <td class="actions">
                                             <?php
-                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'division_view', $company['Company']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
-                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'division_edit', $company['Company']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
-                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'division_delete', $company['Company']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('delete_assoc_record'), $company['Company']['id']));
+                                                echo $this->Html->link($this->Html->Image('view.png'),array('action' => 'admin_view', $company['Company']['id']),array('escape'=>false,'alt' => 'View','title' => 'View'));
+                                                echo $this->Html->link($this->Html->Image('editin.png'),array('action' => 'admin_edit', $company['Company']['id']),array('escape'=>false,'alt' => 'Edit','title' => 'Edit'));
+                                                echo $this->Form->postLink($this->Html->Image('delete.png'), array('action' => 'admin_delete', $company['Company']['id']),array('escape'=>false,'alt' => 'Delete','title' => 'Delete'), __(Configure::read('delete_assoc_record'), $company['Company']['id']));
 
                                             ?>
                                             </td>

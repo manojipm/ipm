@@ -2,9 +2,13 @@
 ################### Constant variable define here all type -: 19-12-2014 #############################
 
 $hostname = $_SERVER['HTTP_HOST'];
-if($hostname == 'localhost' || $hostname == '192.168.4.208' ){
+if($hostname == 'localhost'){
+    define('SITEURL', 'http://'.$hostname.'/git_ipm/ipm/');
+}
+else if($hostname == '192.168.4.208' ){
     define('SITEURL', 'http://'.$hostname.'/git_ipm/');
-}else{
+}
+else{
     define('SITEURL', 'http://'.$hostname);
 }
 define('ADMIN_EMAIL', 'manish.singh@mailinator.com');

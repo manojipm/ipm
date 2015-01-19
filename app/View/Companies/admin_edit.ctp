@@ -11,7 +11,7 @@
                     <i class="icon-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Add Company</a>
+                    <a href="javascript:void(0);">Edit Company</a>
                 </li>
             </ul>
             <!--<div class="close-bread">
@@ -115,7 +115,7 @@
                         </div>
                         
                          <div class="control-group">
-                            <label for="textfield" class="control-label">revenue</label>
+                            <label for="textfield" class="control-label">Revenue</label>
                             <div class="controls">
                                 <?php
                                 echo $this->Form->checkbox('Company.revenue', array(
