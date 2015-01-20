@@ -32,11 +32,7 @@ App::uses('CakeEmail', 'Network/Email');
 class CompaniesController extends AppController {
 
 	public $name = 'Companies';	
-<<<<<<< HEAD
-	public $uses = array('Company', 'IndustryClassification','LocationsByDivision','CompanyStructure','State','Country','Zone','City');
-=======
 	public $uses = array('Company', 'IndustryClassification','LocationsByDivision','CompanyStructure','LocationDivision');
->>>>>>> manoj
 	
 	/**
 	* check login for admin and frontend user
@@ -76,8 +72,6 @@ class CompaniesController extends AppController {
           //  pr($this->paginate()); die;
             $this->set('companies', $this->paginate());
 	}
-        
-        /*======================= COMPANY FUNCTIONS =========================*/
 	
 	/**
 	 * Displays a company view
@@ -99,61 +93,8 @@ class CompaniesController extends AppController {
 			}
 		}   
 	}
-        
-        /**
-	 * admin_edit method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	public function admin_edit($id = null) {
-        $this->set('title_for_layout', __('Edit Company',true));
-		$this->Company->id = $id;
-		//check country exist
-		if (!$this->Company->exists()) {
-			$this->Session->setFlash(__('Invalid Company.'),'error');
-			$this->redirect(array('action' => 'index'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Company->save($this->request->data)) {
-                                $this->Session->setFlash(__('The company has been saved successfully.'),'success');
-                                $this->redirect(array('action' => 'index'));
-			} else {
-                               
-                                
-				$this->Session->setFlash(__('The company could not be saved. Please, try again.'),'error');
-			}
-                        
-		} 
-                
-		$this->request->data = $this->Company->read(null, $id);
-                
-	}
-        
-        /**
-	 * admin_structure_view method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	public function admin_view($id = null)
-	{
-            
-        $this->set('title_for_layout', __('View Company',true));
-		$this->Company->id = $id;
-		if (!$this->Company->exists()) {
-			throw new NotFoundException(__('Invalid Company'));
-		}
-		
-		$this->set('companies', $this->Company->read(null, $id));
-		$this->set('title_for_layout','View Company');
-	}
 	
         /**
-<<<<<<< HEAD
-=======
 	 * admin_view method
 	 *
 	 * @throws NotFoundException
@@ -203,7 +144,6 @@ class CompaniesController extends AppController {
 	}
 	
         /**
->>>>>>> manoj
 	 * admin_delete method
 	 *
 	 * @throws MethodNotAllowedException

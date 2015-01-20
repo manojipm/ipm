@@ -7,17 +7,6 @@ App::uses('AppModel', 'Model');
  *
  */
 class Company extends AppModel {
-    
-    
-   /* public $belongsTo = array(
-        'User' => array(
-         'className' => 'User',
-         'foreignKey' => 'user_id',
-         'conditions' => '',
-         'fields' => '',
-         'order' => ''
-        )
-    );*/
 
     /**
      * Validation rules
@@ -53,24 +42,6 @@ class Company extends AppModel {
         'company_name' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
-<<<<<<< HEAD
-                'message' => 'Company name is required'
-            )
-        ),
-        'sic_code' => array(
-            'notempty' => array(
-                'rule' => 'notEmpty',
-                'required' => false,
-                'message' => 'SIC code is required',
-            ),
-            'unique' => array(
-                'rule' => array('isUnique', 'sic_code'),
-                'message' => 'This sic code has already exist',
-            //'on' => 'create'
-            )
-        ),
-        'org_chart' => array(
-=======
                 'message' => 'This field is required'
             )
         ),
@@ -92,21 +63,11 @@ class Company extends AppModel {
             )
         ),
         'street' => array(
->>>>>>> manoj
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'This field is required'
             )
         ),
-<<<<<<< HEAD
-        'street' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'This field is required'
-            )
-        ),
-=======
->>>>>>> manoj
         'country_id' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
@@ -131,11 +92,7 @@ class Company extends AppModel {
                 'message' => 'This field is required'
             )
         ),
-<<<<<<< HEAD
-        'ownership' => array(
-=======
         'phone' => array(
->>>>>>> manoj
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'This field is required'
