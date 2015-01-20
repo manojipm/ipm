@@ -32,16 +32,16 @@
                             <thead>
                                 <tr>
                                     <th>S.No.</th>
-                                   	<th><?php echo $this->Paginator->sort('company_name',__("Name"));?></th>
+                                    <th><?php echo $this->Paginator->sort('company_name',__("Name"));?></th>
                                     <th>SIC Code</th>
                                     <th>ORG Chart</th>
                                     <th>Location</th>
-                                    <th>Phone</th>
+                                    
                                     <th>Ownership</th>
                                     <th>Structure</th>
                                     <th>Industry Classification</th>
                                     <th>Revenue</th>
-                                   	<th>Created on</th>
+                                    <th>Created on</th>
                                     <th>Status</th>
                                     <th class="actions">Actions</th>
                                 </tr>
@@ -60,17 +60,32 @@
 											<td> <?php echo $company['Company']['sic_code'];?></td>
 											<td> <?php echo $company['Company']['org_chart'];?></td>
 											
-											<td> <?php echo $company['Company']['street'];?>
-											 <?php echo $company['Company']['city_id'];?>
-											<?php echo $company['Company']['state_id'];?>
-											 <?php echo $company['Company']['country_id'];?>
-											 <?php echo $company['Company']['zip'];?></td>
-											
-											<td> <?php echo $company['Company']['phone'];?></td>
+											<td> 
+                                                                                            <table>
+                                                                                                <tr>
+                                                                                                    <td>Street</td><td><?php echo $company['Company']['street'];?></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>City</td><td><?php echo $company['City']['city'];?></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>State</td><td><?php echo $company['State']['state'];?></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Zip</td><td><?php echo $company['Company']['zip'];?></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Phone</td><td><?php echo $company['Company']['phone'];?></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Country</td><td><?php echo $company['Country']['country'];?></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
 											<td> <?php echo $company['Company']['ownership'];?></td>
-											<td> <?php echo $company['Company']['structure_id'];?></td>
-											<td> <?php echo $company['Company']['revenue'];?></td>
-											<td> <?php echo $company['Company']['industry_classification_id'];?></td>
+											<td> <?php echo $company['CompanyStructure']['structure'];?></td>
+											<td> <?php echo $company['IndustryClassification']['classification'];?></td>
+                                                                                        <td> <?php echo $company['Company']['revenue'];?></td>
 											<td> <?php echo $company['Company']['created'];?></td>
                                                   
                                             <td class="status">

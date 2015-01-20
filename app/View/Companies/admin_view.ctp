@@ -7,11 +7,19 @@
                     <i class="icon-angle-right"></i>
                 </li>
                 <li>
+<<<<<<< HEAD
                     <a href="<?php echo SITEURL; ?>admin/companies/division">Project Division</a>
                     <i class="icon-angle-right"></i>
                 </li>
                 <li>
                     <a href="javascript:void(0);">View Project Division</a>
+=======
+                    <a href="<?php echo SITEURL; ?>admin/companies">Company</a>
+                    <i class="icon-angle-right"></i>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">View Company</a>
+>>>>>>> manoj
                 </li>
             </ul>
             <!--<div class="close-bread">
@@ -22,9 +30,15 @@
             <div class="span12">
                 <div class="box box-color box-bordered">
                     <div class="box-title">
+<<<<<<< HEAD
                         <h3><i class="icon-th-list"></i> Division - View Division</h3>
                         <h3 style="float: right; margin-right: 10px; font-size: 13px;">
                             <?php echo $this->Html->link('Back',array('action'=>'structure'),array('style'=>'color:#fff !important;'));?>
+=======
+                        <h3><i class="icon-th-list"></i> Company - View Company</h3>
+                        <h3 style="float: right; margin-right: 10px; font-size: 13px;">
+                            <?php echo $this->Html->link('Back',array('action'=>'companies'),array('style'=>'color:#fff !important;'));?>
+>>>>>>> manoj
                         </h3>
                     </div>
                     <div class="box-content nopadding">
@@ -33,16 +47,28 @@
                         
                           
                             <div class="control-group">
+<<<<<<< HEAD
                                 <label for="textfield" class="control-label">Title</label>
+=======
+                                <label for="textfield" class="control-label">Name</label>
+>>>>>>> manoj
                                 <div class="controls"><?php echo $companies['Company']['company_name']; ?></div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">SIC Code</label>
+<<<<<<< HEAD
                                 <div class="controls"><?php echo $companies['Company']['company_name']; ?></div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">ORG Chart</label>
                                 <div class="controls"><?php echo $companies['Company']['company_name']; ?></div>
+=======
+                                <div class="controls"><?php echo $companies['Company']['sic_code']; ?></div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">ORG. Chart</label>
+                                <div class="controls"><?php echo $companies['Company']['org_chart']; ?></div>
+>>>>>>> manoj
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Street</label>
@@ -50,6 +76,7 @@
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Country</label>
+<<<<<<< HEAD
                                 <div class="controls"><?php echo $companies['Company']['country_id']; ?></div>
                             </div>
                             <div class="control-group">
@@ -59,6 +86,17 @@
                             <div class="control-group">
                                 <label for="textfield" class="control-label">City</label>
                                 <div class="controls"><?php echo $companies['Company']['city_id']; ?></div>
+=======
+                                <div class="controls"><?php echo $companies['Country']['country']; ?></div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">State</label>
+                                <div class="controls"><?php echo $companies['State']['state']; ?></div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">City</label>
+                                <div class="controls"><?php echo $companies['City']['city']; ?></div>
+>>>>>>> manoj
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Zip</label>
@@ -73,18 +111,30 @@
                                 <div class="controls"><?php echo $companies['Company']['ownership']; ?></div>
                             </div>
                             <div class="control-group">
+<<<<<<< HEAD
                                 <label for="textfield" class="control-label">Structure Type</label>
                                 <div class="controls"><?php echo $companies['Company']['structure_id']; ?></div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Industry Classification</label>
+=======
+                                <label for="textfield" class="control-label">Structure</label>
+                                <div class="controls"><?php echo $companies['Company']['structure_id']; ?></div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">Classification</label>
+>>>>>>> manoj
                                 <div class="controls"><?php echo $companies['Company']['industry_classification_id']; ?></div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Revenue</label>
                                 <div class="controls"><?php echo $companies['Company']['revenue']; ?></div>
                             </div>
+<<<<<<< HEAD
                         
+=======
+                            
+>>>>>>> manoj
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Created</label>
                                 <div class="controls"><?php echo $companies['Company']['created'];?></div>

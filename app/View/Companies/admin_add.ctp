@@ -45,7 +45,8 @@
                         <div class="control-group">
                             <label for="textfield" class="control-label">ORG Chart <span>*</span></label>
                             <div class="controls">
-                               <?php echo $this->Form->input('Company.org_chart', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                               <?php echo $this->Form->input('Company.org_chart', array('options' => unserialize(ORG_CHART),  'empty' => 'Select org. chart', 'label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                          
                             </div>
                         </div>
                         
@@ -76,7 +77,11 @@
                             <div class="controls">
                                <?php echo $this->Form->input('Company.city_id', array('options' => $this->Common->getCityList(),  'empty' => 'Select state', 'label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
+<<<<<<< HEAD
                         </div>
+=======
+                        </div>  
+>>>>>>> manoj
                         
                         <div class="control-group">
                             <label for="textfield" class="control-label">Zip </label>
@@ -95,15 +100,14 @@
                          <div class="control-group">
                             <label for="textfield" class="control-label">Ownership <span>*</span></label>
                             <div class="controls">
-                               <?php echo $this->Form->input('Company.ownership', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                               <?php echo $this->Form->input('Company.ownership', array('options' => unserialize(OWNERSHIP),  'empty' => 'Select ownership', 'label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>                         
-                        
                         
                         <div class="control-group">
                             <label for="textfield" class="control-label">Structure Type </label>
                             <div class="controls">
-                               <?php echo $this->Form->input('Company.structure_id', array('options' => $this->Common->getCompanyStructure(),  'empty' => 'Select Structure Type',  'label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                               <?php echo $this->Form->input('Company.company_structure_id', array('options' => $this->Common->getCompanyStructure(),  'empty' => 'Select Structure Type',  'label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>                       
                         
@@ -114,16 +118,10 @@
                             </div>
                         </div>
                         
-                         <div class="control-group">
-                            <label for="textfield" class="control-label">revenue</label>
+                        <div class="control-group">
+                            <label for="textfield" class="control-label">Revenue</label>
                             <div class="controls">
-                                <?php
-                                echo $this->Form->checkbox('Company.revenue', array(
-                                    'value' => '1',
-                                    'checked' => 'checked',
-                                    'hiddenField' => false,
-                                ));
-                                ?>
+                               <?php echo $this->Form->input('Company.revenue', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>
                         

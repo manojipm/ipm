@@ -135,7 +135,15 @@ class CommonHelper extends Helper {
         return isset($classifications) ? $classifications : array();
     }
     
+    public function getCompanyList(){
+        $companies = ClassRegistry::init('Company')->find('list', array('fields' => array('id', 'company_name')));
+        return isset($companies) ? $companies : array();
+    }
     
+    public function getLocationsByDivisionList(){
+        $locationsbydivisions = ClassRegistry::init('LocationsByDivision')->find('list', array('fields' => array('id', 'division_type')));
+        return isset($locationsbydivisions) ? $locationsbydivisions : array();
+    }
 
     
     /*public function getCountryList(){
@@ -156,24 +164,9 @@ class CommonHelper extends Helper {
         return isset($cities) ? $cities : array();
     }*/
     
-    
-    public function getLanguageList(){
-        $languages = ClassRegistry::init('Language')->find('list',array('conditions'=>array('Language.status'=> 1), array('fields' => array('id', 'name'))) );
-        return isset($languages) ? $languages : array();
-    }
     public function getUnread($id){
         $count = ClassRegistry::init('MessageUser')->find('count',array('conditions'=>array('MessageUser.read_flag'=> UNREAD,'MessageUser.message_folder_id'=> INBOX,'MessageUser.receiver_id'=>$this->Session->read('Auth.Admin.id'))) );
         return isset($count) ? $count : '';
     }
-	
-	function birthday($birthday) {
-		$age = date_create($birthday)->diff(date_create('today'))->y;
-		return $age;
-	} 
-	
-	function profilePic($userId) {
-		$profilepic = ClassRegistry::init('UserImage')->find('first', array('conditions' => array('UserImage.is_profile_pic' => 1, 'UserImage.user_id' => $userId)));
-        return isset($profilepic['UserImage']['image_name']) ? $profilepic['UserImage']['image_name'] : array();
-	}
 	
 }

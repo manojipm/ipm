@@ -24,11 +24,36 @@ class Company extends AppModel {
      *
      * @var array
      */    
-       
+    
+    public $belongsTo = array(
+        'City' => array(
+            'className' => 'City',
+            'dependent' => true
+        ),
+        'State' => array(
+            'className' => 'State',
+            'dependent' => true
+        ),
+        'Country' => array(
+            'className' => 'Country',
+            'dependent' => true
+        ),
+        'CompanyStructure' => array(
+            'className' => 'CompanyStructure',
+            'dependent' => true
+        ),
+        'IndustryClassification' => array(
+            'className' => 'IndustryClassification',
+            'dependent' => true
+        )
+    );
+        
+        
     public $validate = array(
         'company_name' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
+<<<<<<< HEAD
                 'message' => 'Company name is required'
             )
         ),
@@ -45,17 +70,43 @@ class Company extends AppModel {
             )
         ),
         'org_chart' => array(
+=======
+                'message' => 'This field is required'
+            )
+        ),
+        'sic_code' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'This field is required'
+            ),
+            'unique' => array(
+                'rule' => array('isUnique', 'sic_code'),
+                'message' => 'This email has already been taken',
+            //'on' => 'create'
+            )
+        ),
+        'org_chart' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'This field is required'
             )
         ),
         'street' => array(
+>>>>>>> manoj
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'This field is required'
             )
         ),
+<<<<<<< HEAD
+        'street' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'This field is required'
+            )
+        ),
+=======
+>>>>>>> manoj
         'country_id' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
@@ -80,7 +131,11 @@ class Company extends AppModel {
                 'message' => 'This field is required'
             )
         ),
+<<<<<<< HEAD
         'ownership' => array(
+=======
+        'phone' => array(
+>>>>>>> manoj
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'This field is required'

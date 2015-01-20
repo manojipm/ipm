@@ -32,7 +32,11 @@ App::uses('CakeEmail', 'Network/Email');
 class CompaniesController extends AppController {
 
 	public $name = 'Companies';	
+<<<<<<< HEAD
 	public $uses = array('Company', 'IndustryClassification','LocationsByDivision','CompanyStructure','State','Country','Zone','City');
+=======
+	public $uses = array('Company', 'IndustryClassification','LocationsByDivision','CompanyStructure','LocationDivision');
+>>>>>>> manoj
 	
 	/**
 	* check login for admin and frontend user
@@ -53,6 +57,8 @@ class CompaniesController extends AppController {
 	    $this->set('model', 'Company');
 				
 	}
+        
+        /*======================= COMPANY FUNCTIONS =========================*/
 	
 	/**
 	 * Displays a company view
@@ -67,6 +73,7 @@ class CompaniesController extends AppController {
 
             $this->Company->recursive = 0;
             $this->paginate = array("limit" => 15, "order" => "Company.created DESC");
+          //  pr($this->paginate()); die;
             $this->set('companies', $this->paginate());
 	}
         
@@ -145,6 +152,58 @@ class CompaniesController extends AppController {
 	}
 	
         /**
+<<<<<<< HEAD
+=======
+	 * admin_view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function admin_view($id = null)
+	{
+        $this->set('title_for_layout', __('View Company',true));
+		$this->Company->id = $id;
+		if (!$this->Company->exists()) {
+			throw new NotFoundException(__('Invalid Company'));
+		}
+		
+		$this->set('companies', $this->Company->read(null, $id));
+		$this->set('title_for_layout','View Company');
+	}
+        
+        /**
+	 * admin_edit method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function admin_edit($id = null) {
+        $this->set('title_for_layout', __('Edit Company',true));
+		$this->Company->id = $id;
+		//check country exist
+		if (!$this->Company->exists()) {
+			$this->Session->setFlash(__('Invalid Company.'),'error');
+			$this->redirect(array('action' => 'index'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->Company->save($this->request->data)) {
+                                $this->Session->setFlash(__('The company has been saved successfully.'),'success');
+                                $this->redirect(array('action' => 'index'));
+			} else {
+                               
+                                
+				$this->Session->setFlash(__('The company could not be saved. Please, try again.'),'error');
+			}
+                        
+		} 
+
+		$this->request->data = $this->Company->read(null, $id);
+	}
+	
+        /**
+>>>>>>> manoj
 	 * admin_delete method
 	 *
 	 * @throws MethodNotAllowedException
@@ -392,7 +451,7 @@ class CompaniesController extends AppController {
 		$this->redirect(array('action' => 'classification'));
 	}
         
-        /*======================= COMPANY LOCATION BY DIVISION FUNCTIONS =========================*/
+        /*======================= COMPANY LOCATION BY DIVISION TYPES FUNCTIONS =========================*/
         
         /**
 	 * Displays a view
@@ -501,6 +560,118 @@ class CompaniesController extends AppController {
 		}
 		$this->Session->setFlash(__('Division not deleted'),'error');
 		$this->redirect(array('action' => 'division'));
+	}
+        
+        /*======================= COMPANY LOCATION BY DIVISION FUNCTIONS =========================*/
+        
+        /**
+	 * Displays a view
+	 *
+	 * @param mixed What page to display
+	 * @return void
+	 */	
+	public function admin_locationbydivision(){
+	
+            $this->set('title_for_layout', __('All Locatio By Division',true));
+            $conditions = array();
+            $this->LocationDivision->recursive = 0;
+            $this->paginate = array("limit" => 15, "order" => "LocationDivision.division ASC");
+            
+            //pr($this->paginate('LocationDivision')); die;
+            $this->set('ldivisions', $this->paginate('LocationDivision'));
+            
+	}
+        
+	/**
+	 * admin_locationbydivision_view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function admin_locationbydivision_view($id = null) {
+                $this->set('title_for_layout', __('View Locatio By Division',true));
+		$this->LocationDivision->id = $id;
+		if (!$this->LocationDivision->exists()) {
+			throw new NotFoundException(__('Invalid Locatio By Division'));
+		}
+		
+		$this->set('ldivisions', $this->LocationDivision->read(null, $id));
+		$this->set('title_for_layout','View Locatio By Division');
+	}
+        
+         /**
+	 * admin_locationbydivision_add method
+	 *
+	 * @return void
+	 */	
+	public function admin_locationbydivision_add(){
+		$this->set('title_for_layout', __('Add new Locatio By Division',true));
+		if ($this->request->is('post') || $this->request->is('put')) {
+			
+			if ($this->LocationDivision->save($this->request->data)) { 
+				$this->Session->setFlash(__('The locatio by division has been saved successfully.'),'success');
+				$this->redirect(array('action' => 'locationbydivision'));
+			} else {
+				$this->Session->setFlash(__('The locatio by division could not be saved. Please, try again.'),'error');
+		
+			}
+		}
+	}
+        
+        /**
+	 * admin_locationbydivision_edit method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function admin_locationbydivision_edit($id = null) {
+                $this->set('title_for_layout', __('Edit locatio by division',true));
+		$this->LocationDivision->id = $id;
+		//check country exist
+		if (!$this->LocationDivision->exists()) {
+			$this->Session->setFlash(__('Invalid locatio by division.'),'error');
+			$this->redirect(array('action' => 'locationbydivision'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->LocationDivision->save($this->request->data)) {
+                                $this->Session->setFlash(__('The locatio by division has been saved successfully.'),'success');
+                                $this->redirect(array('action' => 'locationbydivision'));
+			} else {
+                               
+                                
+				$this->Session->setFlash(__('The locatio by division could not be saved. Please, try again.'),'error');
+			}
+                        
+		} 
+
+		$this->request->data = $this->LocationDivision->read(null, $id);
+	}
+			
+	/**
+	 * admin_locationbydivision_delete method
+	 *
+	 * @throws MethodNotAllowedException
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function admin_locationbydivision_delete($id = null) {
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+		$this->LocationDivision->id = $id;
+		if (!$this->LocationDivision->exists()) {
+			throw new NotFoundException(__('Invalid locatio by division'),'error');
+		}     
+                
+		if ($this->LocationDivision->delete()) {
+			$this->Session->setFlash(__('Locatio by division deleted'),'success');
+			$this->redirect(array('action' => 'locationbydivision'));
+		}
+		$this->Session->setFlash(__('Locatio by division not deleted'),'error');
+		$this->redirect(array('action' => 'locationbydivision'));
 	}
         
 	/**
