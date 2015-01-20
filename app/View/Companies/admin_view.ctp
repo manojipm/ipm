@@ -50,15 +50,15 @@
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Country</label>
-                                <div class="controls"><?php echo $companies['Company']['country_id']; ?></div>
+                                <div class="controls"><?php echo $companies['Country']['country']; ?></div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">State</label>
-                                <div class="controls"><?php echo $companies['Company']['state_id']; ?></div>
+                                <div class="controls"><?php echo $companies['State']['state']; ?></div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">City</label>
-                                <div class="controls"><?php echo $companies['Company']['city_id']; ?></div>
+                                <div class="controls"><?php echo $companies['City']['city']; ?></div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Zip</label>

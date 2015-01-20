@@ -11,7 +11,7 @@ $masters        = '';
 $user		= '';
 $setting	= '';
 $slider         = '';
-$review         = '';
+$companies      = '';
 $plan	= '';
 $place		= '';
 $penalty		= '';
@@ -27,10 +27,9 @@ if($controller == 'pages' && $action ==('index'||'add'||'edit'||'delete')){
 if($controller == 'testimonials' && $action ==('index'||'add'||'edit'||'delete')){
 	$testimonial = ' active';
 }
-if($controller == 'news' && $action ==('index'||'add'||'edit'||'delete')){
-	$new = ' active';
+if($controller == 'companies' && $action ==('index'||'add'||'edit'||'delete')){
+	$companies = ' active';
 }
-
 if($controller == 'agency' && $action ==('index'||'add'||'edit'||'delete')){
 	$agency = ' active';
 }
@@ -126,13 +125,13 @@ if($controller == 'messages' && $action ==('index'||'add'||'edit'||'delete')){
 			</li>
 			
 			<li class='dropdown <?php echo $testimonial;?>'>
-				<a href="javascript:void(0);" data-toggle="dropdown">Location By division Type</a>
+				<a href="javascript:void(0);" data-toggle="dropdown">Divisions</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="<?php echo SITEURL; ?>admin/companies/division">Location by division</a>
+						<a href="<?php echo SITEURL; ?>admin/companies/division">Divisions</a>
 					</li>
 					<li>
-						<a href="<?php echo SITEURL; ?>admin/companies/division_add">Add Location by division</a>
+						<a href="<?php echo SITEURL; ?>admin/companies/division_add">Add Division</a>
 					</li>
 				</ul>
 			</li>
@@ -243,9 +242,22 @@ if($controller == 'messages' && $action ==('index'||'add'||'edit'||'delete')){
 					</li>
 				</ul>
 			</li>
+                        
+                        <li class='dropdown <?php echo $testimonial;?>'>
+				<a href="javascript:void(0);" data-toggle="dropdown">Location By Division</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="<?php echo SITEURL; ?>admin/companies/locationbydivision">Companies Division</a>
+					</li>
+					<li>
+						<a href="<?php echo SITEURL; ?>admin/companies/locationbydivision_add">Add Company Division</a>
+					</li>
+				</ul>
+			</li>
 			
 		</ul>
 	</div>
+    
 	
 	
 <!--	<div class="subnav">

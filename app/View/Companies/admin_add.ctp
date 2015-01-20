@@ -79,10 +79,6 @@
                             </div>
                         </div>  
                         
-                            
-                        
-                                  
-                        
                         <div class="control-group">
                             <label for="textfield" class="control-label">Zip </label>
                             <div class="controls">
@@ -104,11 +100,10 @@
                             </div>
                         </div>                         
                         
-                        
                         <div class="control-group">
                             <label for="textfield" class="control-label">Structure Type </label>
                             <div class="controls">
-                               <?php echo $this->Form->input('Company.structure_id', array('options' => $this->Common->getCompanyStructure(),  'empty' => 'Select Structure Type',  'label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                               <?php echo $this->Form->input('Company.company_structure_id', array('options' => $this->Common->getCompanyStructure(),  'empty' => 'Select Structure Type',  'label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>                       
                         

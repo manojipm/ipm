@@ -11,7 +11,7 @@ $page = '';
 $user = '';
 $masters = '';
 $agency = '';
-$banner = '';
+$companies = '';
 $setting = '';
 $testimonial = '';
 $new = '';
@@ -30,6 +30,9 @@ if ($controller == 'locations' || $controller == 'projects' || $controller == 'c
 }
 if ($controller == 'users' && $action == ('index' || 'add' || 'edit' || 'delete')) {
     $user = ' active';
+}
+if ($controller == 'companies' && $action == ('index' || 'add' || 'edit' || 'delete')) {
+    $companies = ' active';
 }
 if ($controller == 'pages' && $action == ('index' || 'add' || 'edit' || 'delete')) {
     $page = ' active';
@@ -101,7 +104,7 @@ if($controller == 'messages' && $action ==('index'||'add'||'edit'||'delete')){
 						<a href="<?php echo SITEURL; ?>admin/locations/city">City</a>
 					</li>
 					<li>
-						<a href="<?php echo SITEURL; ?>admin/companies/division">Location By division Type</a>
+						<a href="<?php echo SITEURL; ?>admin/companies/division">Divisions</a>
 					</li>
 					<li>
 						<a href="<?php echo SITEURL; ?>admin/companies/classification">Industry Classification</a>
@@ -129,6 +132,21 @@ if($controller == 'messages' && $action ==('index'||'add'||'edit'||'delete')){
                 <ul class="dropdown-menu">
                     <li>
 			<a href="<?php echo SITEURL; ?>admin/users">Users</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class='<?php echo $companies; ?>'>
+                <a href="javascript:void(0);" data-toggle="dropdown" class='dropdown-toggle'>
+                    <span>Company</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+			<a href="<?php echo SITEURL; ?>admin/companies">Companies</a>
+                    </li>
+                    <li>
+			<a href="<?php echo SITEURL; ?>admin/companies/locationbydivision">Location By Division</a>
                     </li>
                 </ul>
             </li>

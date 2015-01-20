@@ -13,7 +13,31 @@ class Company extends AppModel {
      *
      * @var array
      */    
-       
+    
+    public $belongsTo = array(
+        'City' => array(
+            'className' => 'City',
+            'dependent' => true
+        ),
+        'State' => array(
+            'className' => 'State',
+            'dependent' => true
+        ),
+        'Country' => array(
+            'className' => 'Country',
+            'dependent' => true
+        ),
+        'CompanyStructure' => array(
+            'className' => 'CompanyStructure',
+            'dependent' => true
+        ),
+        'IndustryClassification' => array(
+            'className' => 'IndustryClassification',
+            'dependent' => true
+        )
+    );
+        
+        
     public $validate = array(
         'company_name' => array(
             'required' => array(

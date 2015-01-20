@@ -32,7 +32,7 @@
                             <thead>
                                 <tr>
                                     <th>S.No.</th>
-                                    <th><?php echo $this->Paginator->sort('user',__("User"));?></th>
+                                    <th><?php echo $this->Paginator->sort('email',__("Email"));?></th>
                                     <th>Created on</th>
                                     <th><?php echo 'Status';?></th>
                                     <th class="actions">Actions</th>

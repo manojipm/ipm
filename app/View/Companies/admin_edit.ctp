@@ -79,10 +79,6 @@
                             </div>
                         </div>  
                         
-                            
-                        
-                                  
-                        
                         <div class="control-group">
                             <label for="textfield" class="control-label">Zip </label>
                             <div class="controls">
@@ -97,18 +93,17 @@
                             </div>
                         </div>                       
                         
-                         <div class="control-group">
+                        <div class="control-group">
                             <label for="textfield" class="control-label">Ownership <span>*</span></label>
                             <div class="controls">
                                <?php echo $this->Form->input('Company.ownership', array('options' => unserialize(OWNERSHIP),  'empty' => 'Select ownership', 'label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>                         
                         
-                        
                         <div class="control-group">
                             <label for="textfield" class="control-label">Structure Type </label>
                             <div class="controls">
-                               <?php echo $this->Form->input('Company.structure_id', array('options' => $this->Common->getCompanyStructure(),  'empty' => 'Select Structure Type',  'label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
+                               <?php echo $this->Form->input('Company.company_structure_id', array('options' => $this->Common->getCompanyStructure(),  'empty' => 'Select Structure Type',  'label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>                       
                         
@@ -118,13 +113,12 @@
                                <?php echo $this->Form->input('Company.industry_classification_id', array('options' => $this->Common->getIndustryClassification(),  'empty' => 'Select Industry Classification','label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>
+                        
                         <div class="control-group">
                             <label for="textfield" class="control-label">Revenue</label>
                             <div class="controls">
                                <?php echo $this->Form->input('Company.revenue', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
-                        </div>
-                        
                         </div>
                         
                         <div class="control-group">
@@ -139,14 +133,15 @@
                                 ?>
                             </div>
                         </div>
-
+                        
+                    
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/companies/index'" class="btn">Cancel</button>
                         </div>
                         
-                        
                         </form>
+                        
                     </div>
                 </div>
             </div>
