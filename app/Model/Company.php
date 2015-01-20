@@ -15,49 +15,76 @@ class Company extends AppModel {
      */    
        
     public $validate = array(
-        'email' => array(
+        'company_name' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'Email is required'
-            ),
-            'email' => array(
-                'rule' => array('email'),
-                'message' => 'Valid email is required',
+                'message' => 'This field is required'
+            )
+        ),
+        'sic_code' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'This field is required'
             ),
             'unique' => array(
-                'rule' => array('isUnique', 'email'),
+                'rule' => array('isUnique', 'sic_code'),
                 'message' => 'This email has already been taken',
             //'on' => 'create'
             )
         ),
-        'current_password' => array(
-            'notempty' => array(
-                'rule' => 'notEmpty',
-                'required' => false,
-                'message' => 'Please enter current password',
-            ),
-            'password_exists' => array(
-                'rule' => array('password_exists'),
-                'message' => 'Invalid Current Password'
-            )
-        ),'password' => array(
+        'org_chart' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'Password is required',
-                'on' => 'create'
+                'message' => 'This field is required'
             )
         ),
-        'cpassword' => array(
-            'notempty' => array(
-                'rule' => 'notEmpty',
-                'required' => false,
-                'message' => 'Please re enter password',
-            ),
-            'match_passwds' => array(
-                'rule' => 'matchPasswds',
-                'required' => false,
-                'message' => 'Password and confirm password does not match',
-            ),
+        'street' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'This field is required'
+            )
+        ),
+        'country_id' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'This field is required'
+            )
+        ),
+        'state_id' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'This field is required'
+            )
+        ),
+        'city_id' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'This field is required'
+            )
+        ),
+        'zip' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'This field is required'
+            )
+        ),
+        'phone' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'This field is required'
+            )
+        ),
+        'structure_id' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'This field is required'
+            )
+        ),
+        'industry_classification_id' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'This field is required'
+            )
         ),
     );
 

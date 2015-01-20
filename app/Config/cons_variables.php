@@ -2,7 +2,10 @@
 ################### Constant variable define here all type -: 19-12-2014 #############################
 
 $hostname = $_SERVER['HTTP_HOST'];
-if($hostname == 'localhost' || $hostname == '192.168.4.208' ){
+if($hostname == 'localhost'){
+    define('SITEURL', 'http://'.$hostname.'/git_ipm/ipm/');
+}
+else if($hostname == '192.168.4.208' ){
     define('SITEURL', 'http://'.$hostname.'/git_ipm/');
 }else{
     define('SITEURL', 'http://'.$hostname);
@@ -52,7 +55,8 @@ define("MESSAGE_FILE_PATH", UPLOAD.'message_files');
 
 
 define("PAGE_IMAGE_PATH", UPLOAD.'page_images');
-
+define("ORG_CHART", serialize(array("parent"=>"Parent","subsidiary"=>"Subsidiary")));
+define("OWNERSHIP", serialize(array("private"=>"Private","public"=>"Public")));
 
 define("ADMIN_DATE_FORMAT", 'M jS, Y');
 define("FRONT_DATE_FORMAT", '%d-%m-%Y');

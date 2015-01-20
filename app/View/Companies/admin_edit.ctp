@@ -11,7 +11,7 @@
                     <i class="icon-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Add Company</a>
+                    <a href="javascript:void(0);">Edit Company</a>
                 </li>
             </ul>
             <!--<div class="close-bread">
@@ -43,7 +43,7 @@
                         </div>
                         
                         <div class="control-group">
-                            <label for="textfield" class="control-label">ORG Chart <span>*</span></label>
+                            <label for="textfield" class="control-label">ORG. Chart <span>*</span></label>
                             <div class="controls">
                                <?php echo $this->Form->input('Company.org_chart', array('options' => unserialize(ORG_CHART),  'empty' => 'Select org. chart', 'label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                           
@@ -112,18 +112,19 @@
                             </div>
                         </div>                       
                         
-                         <div class="control-group">
+                        <div class="control-group">
                             <label for="textfield" class="control-label">Industry Classification</label>
                             <div class="controls">
                                <?php echo $this->Form->input('Company.industry_classification_id', array('options' => $this->Common->getIndustryClassification(),  'empty' => 'Select Industry Classification','label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
                         </div>
-                        
                         <div class="control-group">
                             <label for="textfield" class="control-label">Revenue</label>
                             <div class="controls">
                                <?php echo $this->Form->input('Company.revenue', array('label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
                             </div>
+                        </div>
+                        
                         </div>
                         
                         <div class="control-group">

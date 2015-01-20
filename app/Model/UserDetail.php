@@ -3,7 +3,7 @@
 App::uses('AppModel', 'Model');
 
 /**
- * User Model
+ * UserDetail Model
  *
  */
 class UserDetail extends AppModel {
@@ -13,7 +13,7 @@ class UserDetail extends AppModel {
         'first_name' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'Name is required'
+                'message' => 'First Name is required'
             )
         ),
         'last_name' => array(

@@ -53,6 +53,8 @@ class CompaniesController extends AppController {
 	    $this->set('model', 'Company');
 				
 	}
+        
+        /*======================= COMPANY FUNCTIONS =========================*/
 	
 	/**
 	 * Displays a company view
@@ -91,7 +93,80 @@ class CompaniesController extends AppController {
 		}   
 	}
 	
+        /**
+	 * admin_view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function admin_view($id = null)
+	{
+        $this->set('title_for_layout', __('View Company',true));
+		$this->Company->id = $id;
+		if (!$this->Company->exists()) {
+			throw new NotFoundException(__('Invalid Company'));
+		}
+		
+		$this->set('companies', $this->Company->read(null, $id));
+		$this->set('title_for_layout','View Company');
+	}
+        
+        /**
+	 * admin_edit method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function admin_edit($id = null) {
+        $this->set('title_for_layout', __('Edit Company',true));
+		$this->Company->id = $id;
+		//check country exist
+		if (!$this->Company->exists()) {
+			$this->Session->setFlash(__('Invalid Company.'),'error');
+			$this->redirect(array('action' => 'index'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->Company->save($this->request->data)) {
+                                $this->Session->setFlash(__('The company has been saved successfully.'),'success');
+                                $this->redirect(array('action' => 'index'));
+			} else {
+                               
+                                
+				$this->Session->setFlash(__('The company could not be saved. Please, try again.'),'error');
+			}
+                        
+		} 
+
+		$this->request->data = $this->Company->read(null, $id);
+	}
 	
+        /**
+	 * admin_delete method
+	 *
+	 * @throws MethodNotAllowedException
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function admin_delete($id = null) {
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+		$this->Company->id = $id;
+		if (!$this->Company->exists()) {
+			throw new NotFoundException(__('Invalid Company'),'error');
+		}     
+                
+		if ($this->Company->delete()) {
+			$this->Session->setFlash(__('Company deleted'),'success');
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->Session->setFlash(__('Company not deleted'),'error');
+		$this->redirect(array('action' => 'index'));
+	}
+        
 	/*======================= COMPANY STRUCTURE FUNCTIONS =========================*/
         
    	/**
