@@ -76,7 +76,7 @@ class UsersController extends AppController {
     public function admin_add() {
         $this->set('title_for_layout', __('Add new User',true));
 		if ($this->request->is('post') || $this->request->is('put')) {
-			
+			//pr($this->request->data);die;
 			if ($result = $this->User->save($this->request->data)) { 
                            
                             $this->request->data['UserDetail']['user_id'] = $this->User->getLastInsertId();
@@ -131,9 +131,9 @@ class UsersController extends AppController {
 			}
                         
 		}
-                $this->User->bindModel(array('hasOne'=>array('UserDetail')));
+                //$this->User->bindModel(array('hasOne'=>array('UserDetail')));
 		$this->request->data = $this->User->read(null, $id);
-               
+               //pr($this->request->data);die;
     }
 
     /**

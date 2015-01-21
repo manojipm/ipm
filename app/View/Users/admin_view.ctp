@@ -24,7 +24,7 @@
                     <div class="box-title">
                         <h3><i class="icon-th-list"></i> User - View User</h3>
                         <h3 style="float: right; margin-right: 10px; font-size: 13px;">
-                            <?php echo $this->Html->link('Back',array('action'=>'user'),array('style'=>'color:#fff !important;'));?>
+                            <?php echo $this->Html->link('Back',array('action'=>'index'),array('style'=>'color:#fff !important;'));?>
                         </h3>
                     </div>
                     <div class="box-content nopadding">

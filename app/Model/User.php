@@ -12,7 +12,13 @@ class User extends AppModel {
      * Validation rules
      *
      * @var array
-     */    
+     */ 
+    public $hasOne = array(
+            'UserDetail'=>array(
+                'className'     => 'UserDetail',  
+                'dependent'=> true 
+            )
+    );
        
     public $validate = array(
         'email' => array(

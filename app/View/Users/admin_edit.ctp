@@ -79,7 +79,7 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/testimonials'" class="btn">Cancel</button>
+                            <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/users'" class="btn">Cancel</button>
                         </div>
 
 

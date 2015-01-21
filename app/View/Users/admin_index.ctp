@@ -32,6 +32,7 @@
                             <thead>
                                 <tr>
                                     <th>S.No.</th>
+                                    <th><?php echo $this->Paginator->sort('name',__("Name"));?></th>
                                     <th><?php echo $this->Paginator->sort('email',__("Email"));?></th>
                                     <th>Created on</th>
                                     <th><?php echo 'Status';?></th>
@@ -48,6 +49,7 @@
                                 ?>
                                         <tr>
                                             <td><?php echo $num ?></td>
+                                            <td><?php echo $user['UserDetail']['first_name']." ". $user['UserDetail']['last_name']?></td>
                                             <td><?php echo $user['User']['email'] ?></td>
                                             <td> <?php echo $user['User']['created']; ?>&nbsp;</td>
                                             <td class="status"><?php

@@ -38,13 +38,13 @@
                         <div class="control-group">
                             <label for="textfield" class="control-label">First Name<span>*</span></label>
                             <div class="controls">
-                                <?php echo $this->Form->input('UserProfile.first_name', array('type' => 'text', 'label' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                <?php echo $this->Form->input('UserDetail.first_name', array('type' => 'text', 'label' => false, 'div' => false, 'class' => 'form-control')); ?>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="textfield" class="control-label">Last Name<span>*</span></label>
                             <div class="controls">
-                                <?php echo $this->Form->input('UserProfile.last_name', array('type' => 'text', 'label' => false, 'div' => false, 'class' => 'form-control')); ?>
+                                <?php echo $this->Form->input('UserDetail.last_name', array('type' => 'text', 'label' => false, 'div' => false, 'class' => 'form-control')); ?>
                             </div>
                         </div>
 
@@ -54,7 +54,7 @@
                                 <?php echo $this->Form->input('User.password', array('type' => 'password', 'label' => false, 'div' => false, 'class' => 'form-control', 'value' => '')); ?>
                             </div>
                         </div>
-                        <div class="control-group">
+                        <!--<div class="control-group">
                             <label for="textfield" class="control-label">Profile Images </label>
                             <div class="controls">
                                 <?php echo $this->Form->input('UserImage.image_name', array('type' => 'file', 'multiple' => false, 'label' => false, 'div' => false, 'class' => 'input-xlarge')); ?>
@@ -73,7 +73,7 @@
                                 }
                                 ?>
                             </div>
-                        </div>			
+                        </div>		-->	
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Update</button>
                             <button type="button" onclick="window.location.href = '<?php echo SITEURL; ?>admin/dashboards'" class="btn">Cancel</button>

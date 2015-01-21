@@ -36,7 +36,7 @@
                                     <th>SIC Code</th>
                                     <th>ORG Chart</th>
                                     <th>Location</th>
-                                    
+                                    <th>Phone</th>
                                     <th>Ownership</th>
                                     <th>Structure</th>
                                     <th>Industry Classification</th>
@@ -74,14 +74,13 @@
                                                                                                 <tr>
                                                                                                     <td>Zip</td><td><?php echo $company['Company']['zip'];?></td>
                                                                                                 </tr>
-                                                                                                <tr>
-                                                                                                    <td>Phone</td><td><?php echo $company['Company']['phone'];?></td>
-                                                                                                </tr>
+                                                                                                
                                                                                                 <tr>
                                                                                                     <td>Country</td><td><?php echo $company['Country']['country'];?></td>
                                                                                                 </tr>
                                                                                             </table>
                                                                                         </td>
+                                                                                        <td><?php echo $company['Company']['phone'];?></td>
 											<td> <?php echo $company['Company']['ownership'];?></td>
 											<td> <?php echo $company['CompanyStructure']['structure'];?></td>
 											<td> <?php echo $company['IndustryClassification']['classification'];?></td>
